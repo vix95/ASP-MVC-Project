@@ -36,5 +36,11 @@ namespace KacikFryzjerski.Controllers
 
             return View();
         }
+
+        public ActionResult ItemDetails(string id)
+        {
+
+            return View();
+        }
     }
 }
