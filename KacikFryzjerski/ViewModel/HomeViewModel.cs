@@ -10,5 +10,6 @@ namespace KacikFryzjerski.ViewModel
     {
         public IEnumerable<ItemModels> Bestsellers { get; set; }
         public IEnumerable<ItemModels> StoreItems { get; set; }
+        public IEnumerable<CategoryModels> StoreCategories { get; set; }
     }
 }

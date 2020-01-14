@@ -12,5 +12,7 @@ namespace KacikFryzjerski.Models
         [Required(ErrorMessage = "Wprowadź nazwę kategorii")]
         [StringLength(100)]
         public string Category_name { get; set; }
+
+        public virtual ICollection<ItemModels> Category_Items { get; set; }
     }
 }

@@ -13,13 +13,28 @@ namespace KacikFryzjerski.Controllers
         private readonly DbContext db = new DbContext();
         public ActionResult Products()
         {
-            var store_items = db.items.OrderByDescending(x => x.Item_created_at).ToList();
             var home_view_model = new HomeViewModel()
             {
-                StoreItems = store_items
+                StoreItems = db.items.OrderByDescending(x => x.Item_created_at).ToList(),
+                StoreCategories = db.categories.OrderByDescending(x => x.Category_name).ToList()
             };
 
             return View(home_view_model);
+        }
+
+        public ActionResult CategoryList(string category_name)
+        {
+            var category = db.categories.Include("ItemModels").Where(x => x.Category_name.ToUpper() == category_name.ToUpper()).Single();
+            var items = category.Category_Items.ToList();
+
+            return View(items);
+        }
+
+        [ChildActionOnly]
+        public ActionResult CategoryMenu()
+        {
+            var storeCategories = db.categories.OrderByDescending(x => x.Category_name).ToList();
+            return PartialView("_CategoryMenu", storeCategories);
         }
     }
 }

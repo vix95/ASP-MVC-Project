@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "CategoryList";
+}
+
+<h2>CategoryList</h2>
+
+@Html.Action("CategoryMenu")
+
+<div id="products-category-action">
+    @Html.Action("CategoryMenu")
+    <div>
+        @Html.Partial("_CategoryList")
+    </div>
+</div>

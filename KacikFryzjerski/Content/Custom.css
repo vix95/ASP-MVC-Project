@@ -4,3 +4,11 @@
 .product-image img {
     height: 200px;
 }
+
+td#categories {
+    width: 20%;
+}
+
+td#products {
+    width: 100%;
+}

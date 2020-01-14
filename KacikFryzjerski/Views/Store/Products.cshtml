@@ -5,5 +5,38 @@
     ViewBag.Title = "Products";
 }
 
-<h2>Store</h2>
+<table>
+    <tr>
+        <td id="categories">
+            <div>
+                <ul>
+                    @foreach (var storeCategory in Model.StoreCategories)
+                    {
+                    <li>
+                        <a class="store-category" href="@Url.Action("CategoryList", "Store", new { category_name = storeCategory.Category_name.ToString() })">@storeCategory.Category_name.ToString()</a>
 
+                    </li>
+                    }
+                </ul>
+            </div>
+        </td>
+        <td id="products">
+            <div>
+                <table>
+                    <tr>
+                        @foreach (var storeItem in Model.StoreItems)
+                        {
+                            <td>
+                                <div class="product-image"><img src="@Url.StoreItemImagePath(storeItem.Item_image_path)"</div>
+                                <div class="product-title"><a href="@Url.Action("ItemDetails", "Home", new { id = storeItem.Id })">@storeItem.Item_name</a></div>
+                                <div class="product-description">@storeItem.Item_description</div>
+                                <div class="produdct-price">@storeItem.Item_price</div>
+                                <a class="btn btn-primary" href="@Url.Action("AddToCart", "Cart", new { id = storeItem.Id })">Dodaj do koszyka</a>
+                            </td>
+                        }
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>
