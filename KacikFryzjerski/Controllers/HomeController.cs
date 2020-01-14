@@ -1,4 +1,7 @@
-﻿using System;
+﻿using KacikFryzjerski.DAL;
+using KacikFryzjerski.Models;
+using KacikFryzjerski.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +11,16 @@ namespace KacikFryzjerski.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly DbContext db = new DbContext();
         public ActionResult Index()
         {
-            return View();
+            var bestsellers = db.items.OrderBy(x => Guid.NewGuid()).Take(6).ToList();
+            var home_view_model = new HomeViewModel()
+            {
+                Bestsellers = bestsellers
+            };
+
+            return View(home_view_model);
         }
 
         public ActionResult About()

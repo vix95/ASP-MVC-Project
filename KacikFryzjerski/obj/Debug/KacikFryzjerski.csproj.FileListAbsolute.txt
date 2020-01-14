@@ -99,3 +99,5 @@ C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjer
 C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.csproj.CopyComplete
 C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.dll
 C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.pdb
+C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.InitialCreate.resources
+C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.csproj.GenerateResource.cache

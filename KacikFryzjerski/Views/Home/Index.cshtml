@@ -1,31 +1,54 @@
-﻿@{
+﻿@model KacikFryzjerski.ViewModel.HomeViewModel
+@using KacikFryzjerski.Infrastructure
+@{
     ViewBag.Title = "Home Page";
 }
-
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>Fryzjer</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            Jesteśmy świadomi zaufania, jakim darzą nas klienci i staramy się go nie stracić. 
+            Działamy nieszablonowo i dbamy o indywidualne podejście do każdego, kto korzysta z naszych usług. 
+            Naszą wiedzę wykorzystujemy, aby sprostać zleconemu przez Ciebie zadaniu i czerpać z tego satysfakcję.
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>Barber</h2>
+        <p>
+            Miejsce, w którym dbamy o atmosferę, samopoczucie, twarze, fryzury, brody i zarosty mężczyzn. 
+            Podtrzymując najstarsze tradycje, śledzimy światowe trendy, doskonaląc swoje umiejętności. 
+            Podnosimy poziom męskiej świadomości na temat pielęgnacji z odpowiednim podejściem i pełną kulturą. 
+            Jesteśmy otwarci na potrzeby naszych klientów i uważnie wsłuchujemy się w ich oczekiwania.
+        </p>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>Nasze prace</h2>
+        <p>
+            Nasz barber i fryzjerzy dbają o to, aby fryzury i zarosty były dostosowane do kształtu twarzy. 
+            Jednocześnie dokładają wszelkich starań, aby całość była spójna.
+
+            Wiedza i doświadczenie sprawiają, że bez problemu rozpoczynają pracę z każdym rodzajem włosa. 
+            Dobrze dobrana fryzura nie tylko podkreśli rysy twarzy, ale także odmłodzi i doda pewności siebie. 
+            Zapraszamy do świata profesjonalnych pasjonatów fryzjerstwa, którzy odkryją przed Wami nową 
+            jakość tego rzemiosła.
+        </p>
+    </div>
+
+    <h1>Oferta naszych produków</h1>
+    <div id="products">
+        <table>
+            <tr>
+                @foreach (var bestseller in Model.Bestsellers)
+                {
+                    <td>
+                        <div class="product-image"><img src="@Url.StoreItemImagePath(bestseller.Item_image_path)"</div>
+                        <div class="product-title">@bestseller.Item_name</div>
+                        <div class="product-description">@bestseller.Item_description</div>
+                        <div class="produdct-price">@bestseller.Item_price</div>
+                        <button type="button" class="btn btn-primary">Dodaj do koszyka</button>
+                    </td>
+                }
+            </tr>
+        </table>
     </div>
 </div>
