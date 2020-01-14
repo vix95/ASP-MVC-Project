@@ -1,5 +1,4 @@
 ﻿using KacikFryzjerski.DAL;
-using KacikFryzjerski.Models;
 using KacikFryzjerski.ViewModel;
 using System;
 using System.Collections.Generic;

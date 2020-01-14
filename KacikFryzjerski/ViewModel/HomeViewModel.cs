@@ -9,5 +9,6 @@ namespace KacikFryzjerski.ViewModel
     public class HomeViewModel
     {
         public IEnumerable<ItemModels> Bestsellers { get; set; }
+        public IEnumerable<ItemModels> StoreItems { get; set; }
     }
 }

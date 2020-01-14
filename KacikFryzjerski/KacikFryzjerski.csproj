@@ -171,6 +171,7 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="DAL\DbContext.cs" />
     <Compile Include="DAL\DbInitializer.cs" />
     <Compile Include="Global.asax.cs">
@@ -254,6 +255,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Cart\AddToCart.cshtml" />
     <Content Include="Views\Home\ItemDetails.cshtml" />
+    <Content Include="Views\Store\Products.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
