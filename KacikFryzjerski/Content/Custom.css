@@ -1,7 +1,7 @@
 ﻿body {
 }
 
-.product-image img {
+div#product-image img {
     height: 200px;
 }
 

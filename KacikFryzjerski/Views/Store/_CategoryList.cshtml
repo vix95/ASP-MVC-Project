@@ -1,16 +1,16 @@
-﻿@model IEnumerable<KacikFryzjerski.Models.ItemModels>
+﻿@model IEnumerable<KacikFryzjerski.Models.ProductModels>
 @using KacikFryzjerski.Infrastructure
 
 <table>
     <tr>
-        @foreach (var storeItem in Model)
+        @foreach (var storeProduct in Model)
         {
             <td>
-                <div class="product-image"><img src="@Url.StoreItemImagePath(storeItem.Item_image_path)"</div>
-                <div class="product-title"><a href="@Url.Action("ItemDetails", "Store", new { id = storeItem.Id })">@storeItem.Item_name</a></div>
-                <div class="product-description">@storeItem.Item_description</div>
-                <div class="produdct-price">@storeItem.Item_price</div>
-                <a class="btn btn-primary" href="@Url.Action("AddToCart", "Cart", new { id = storeItem.Id })">Dodaj do koszyka</a>
+                <div id="product-image"><img src="@Url.StoreItemImagePath(storeProduct.Product_image_path)"</div>
+                <div id="product-title"><a href="@Url.Action("ItemDetails", "Store", new { id = storeProduct.Id })">@storeProduct.Product_name</a></div>
+                <div id="product-description">@storeProduct.Product_description</div>
+                <div id="produdct-price">@storeProduct.Product_price</div>
+                <a class="btn btn-primary" href="@Url.Action("AddToCart", "Cart", new { id = storeProduct.Id })">Dodaj do koszyka</a>
             </td>
         }
     </tr>
