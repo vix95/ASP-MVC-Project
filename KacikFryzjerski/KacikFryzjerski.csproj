@@ -187,6 +187,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\AppConfig.cs" />
+    <Compile Include="Infrastructure\CategoryDynamicNodeProvider.cs" />
+    <Compile Include="Infrastructure\ProductDetailsDynamicNodeProvider.cs" />
     <Compile Include="Infrastructure\UrlHelpers.cs" />
     <Compile Include="Migrations\202001141947210_InitialCreate.cs" />
     <Compile Include="Migrations\202001141947210_InitialCreate.Designer.cs">
@@ -279,8 +281,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Cart\AddToCart.cshtml" />
-    <Content Include="Views\Store\ProductDetails.cshtml" />
-    <Content Include="Views\Store\Products.cshtml" />
+    <Content Include="Views\Store\Detail.cshtml" />
+    <Content Include="Views\Store\Index.cshtml" />
     <Content Include="Views\Store\_CategoryMenu.cshtml" />
     <Content Include="Views\Store\CategoryList.cshtml" />
     <Content Include="Views\Store\_CategoryList.cshtml" />

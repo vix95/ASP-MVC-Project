@@ -1,0 +1,35 @@
+﻿@model KacikFryzjerski.ViewModel.HomeViewModel
+@using KacikFryzjerski.Infrastructure
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="sitemap">@Html.MvcSiteMap().SiteMapPath()</div>
+
+<table>
+    <tr>
+        <td id="categories">
+            @Html.Action("CategoryMenu")
+        </td>
+        <td id="products">
+            <div>
+                <table>
+                    <tr>
+                        @foreach (var storeProduct in Model.StoreProducts)
+                        {
+                            <td>
+                                <div id="product-image"><img src="@Url.StoreItemImagePath(storeProduct.Product_image_path)" /></div>
+                                <div id="product-title"><a href="@Url.Action("Detail", "Store", new { product_id = storeProduct.Id })">@storeProduct.Product_name</a></div>
+                                <div id="product-description">@storeProduct.Product_description</div>
+                                <div id="produdct-price">@storeProduct.Product_price</div>
+                                <a class="btn btn-primary" href="@Url.Action("AddToCart", "Cart", new { product_id = storeProduct.Id })">Dodaj do koszyka</a>
+                            </td>
+                        }
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>

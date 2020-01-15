@@ -11,12 +11,12 @@ namespace KacikFryzjerski.Controllers
     public class StoreController : Controller
     {
         private readonly DbContext db = new DbContext();
-        public ActionResult Products()
+        public ActionResult Index()
         {
             var home_view_model = new HomeViewModel()
             {
                 StoreProducts = db.Products.OrderByDescending(x => x.Id).ToList(),
-                StoreCategories = db.Categories.OrderByDescending(x => x.Category_name).ToList()
+                StoreCategories = db.Categories.OrderByDescending(x => x.Id).ToList()
             };
 
             return View(home_view_model);
@@ -24,8 +24,6 @@ namespace KacikFryzjerski.Controllers
 
         public ActionResult CategoryList(int category_id)
         {
-            //var category = db.categories.Include("Category_Items").Where(x => x.Category_name.ToUpper() == category_name.ToUpper()).Single();
-            //var items = category.Category_Items.ToList();
             var items = db.Products.OrderByDescending(x => x.Id).Where(x => x.Product_category_id == category_id).ToList();
 
             return View(items);
@@ -38,7 +36,7 @@ namespace KacikFryzjerski.Controllers
             return PartialView("_CategoryMenu", storeCategories);
         }
 
-        public ActionResult ProductDetails(int product_id)
+        public ActionResult Detail(int product_id)
         {
             var product = db.Products.Find(product_id);
             return View(product);

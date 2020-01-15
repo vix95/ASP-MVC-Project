@@ -207,3 +207,13 @@ C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFr
 C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.addedfield.resources
 C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.addedfieldforItemModels.resources
 C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.changednameofmodels.resources
+C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\bin\MvcSiteMapProvider.dll
+C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\bin\MvcSiteMapProvider.WebActivator.dll
+C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\bin\WebActivatorEx.dll
+C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\bin\Microsoft.Web.Administration.dll
+C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\bin\MvcSiteMapProvider.xml
+C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\bin\MvcSiteMapProvider.WebActivator.pdb
+C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\bin\MvcSiteMapProvider.WebActivator.xml
+C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.addedfield.resources
+C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.addedfieldforItemModels.resources
+C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.changednameofmodels.resources

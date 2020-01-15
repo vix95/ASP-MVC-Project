@@ -4,9 +4,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div id="products-category-action">
-    @Html.Action("CategoryMenu")
-    <div>
-        @Html.Partial("_CategoryList")
-    </div>
-</div>
+<div id="sitemap">@Html.MvcSiteMap().SiteMapPath()</div>
+
+<table>
+    <tr>
+        <td id="categories">
+            @Html.Action("CategoryMenu")
+        </td>
+        <td id="products">
+            <div>
+                @Html.Partial("_CategoryList")
+            </div>
+        </td>
+    </tr>
+</table>
