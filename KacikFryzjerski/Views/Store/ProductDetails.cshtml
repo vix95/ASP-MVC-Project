@@ -1,7 +1,32 @@
-﻿
+﻿﻿@model KacikFryzjerski.Models.ProductModels
+@using KacikFryzjerski.Infrastructure
+
 @{
     ViewBag.Title = "ProductDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ProductDetails</h2>
-
+<table>
+    <tr>
+        <td id="categories">
+            @Html.Action("CategoryMenu")
+        </td>
+        <td id="products">
+            <div>
+                <table>
+                    <tr>
+                        <td id="product-image">
+                            <div id="product-image-details"><img src="@Url.StoreItemImagePath(Model.Product_image_path)" /></div>
+                        </td>
+                        <td id="product-view">
+                            <div id="product-title-details">@Model.Product_name</div>
+                            <div id="product-description-details">@Model.Product_description</div>
+                            <div id="produdct-price-details">@string.Format("{0:0.##}", Model.Product_price) <span>PLN</span></div>
+                            <a class="btn btn-primary-details" href="@Url.Action("AddToCart", "Cart", new { id = Model.Id })">Dodaj do koszyka</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>

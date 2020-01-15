@@ -38,7 +38,7 @@ namespace KacikFryzjerski.Controllers
             return PartialView("_CategoryMenu", storeCategories);
         }
 
-        public ActionResult ProductDetails(string product_id)
+        public ActionResult ProductDetails(int product_id)
         {
             var product = db.Products.Find(product_id);
             return View(product);
