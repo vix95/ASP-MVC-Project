@@ -15,17 +15,18 @@ namespace KacikFryzjerski.Controllers
         {
             var home_view_model = new HomeViewModel()
             {
-                StoreItems = db.items.OrderByDescending(x => x.Item_created_at).ToList(),
+                StoreItems = db.items.OrderByDescending(x => x.Id).ToList(),
                 StoreCategories = db.categories.OrderByDescending(x => x.Category_name).ToList()
             };
 
             return View(home_view_model);
         }
 
-        public ActionResult CategoryList(string category_name)
+        public ActionResult CategoryList(int category_id)
         {
-            var category = db.categories.Include("ItemModels").Where(x => x.Category_name.ToUpper() == category_name.ToUpper()).Single();
-            var items = category.Category_Items.ToList();
+            //var category = db.categories.Include("Category_Items").Where(x => x.Category_name.ToUpper() == category_name.ToUpper()).Single();
+            //var items = category.Category_Items.ToList();
+            var items = db.items.OrderByDescending(x => x.Id).Where(x => x.Item_category_id == category_id).ToList();
 
             return View(items);
         }

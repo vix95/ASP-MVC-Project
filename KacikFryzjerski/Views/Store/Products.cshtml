@@ -13,7 +13,7 @@
                     @foreach (var storeCategory in Model.StoreCategories)
                     {
                     <li>
-                        <a class="store-category" href="@Url.Action("CategoryList", "Store", new { category_name = storeCategory.Category_name.ToString() })">@storeCategory.Category_name.ToString()</a>
+                        <a class="store-category" href="@Url.Action("CategoryList", "Store", new { category_id = storeCategory.Id })">@storeCategory.Category_name.ToString()</a>
 
                     </li>
                     }

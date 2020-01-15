@@ -14,6 +14,12 @@ namespace KacikFryzjerski
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "CategoryList",
+                url: "category/{category_id}",
+                defaults: new { controller = "Store", action = "CategoryList" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
