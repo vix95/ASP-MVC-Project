@@ -20,7 +20,7 @@ namespace KacikFryzjerski.Infrastructure
                 DynamicNode dynamicNode = new DynamicNode();
                 dynamicNode.Title = category.Category_name;
                 dynamicNode.Key = "category_" + category.Id;
-                dynamicNode.RouteValues.Add("id", category.Id);
+                dynamicNode.RouteValues.Add("category_id", category.Id);
 
                 returnValue.Add(dynamicNode);
             }

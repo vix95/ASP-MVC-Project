@@ -21,7 +21,7 @@ namespace KacikFryzjerski.Infrastructure
                 dynamicNode.Title = product.Product_name;
                 dynamicNode.Key = "product_" + product.Id;
                 dynamicNode.ParentKey = "category_" + product.Product_category_id;
-                dynamicNode.RouteValues.Add("id", product.Id);
+                dynamicNode.RouteValues.Add("product_id", product.Id);
 
                 returnValue.Add(dynamicNode);
             }
