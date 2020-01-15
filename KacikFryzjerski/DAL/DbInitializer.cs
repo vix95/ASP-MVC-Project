@@ -4,18 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using KacikFryzjerski.Models;
+using KacikFryzjerski.Migrations;
+using System.Data.Entity.Migrations;
 
 namespace KacikFryzjerski.DAL
 {
-    public class DbInitializer : DropCreateDatabaseAlways<DbContext>
+    public class DbInitializer : MigrateDatabaseToLatestVersion<DbContext, Configuration>
     {
-        protected override void Seed(DbContext context)
-        {
-            SeedDbData(context);
-            base.Seed(context);
-        }
-
-        private void SeedDbData(DbContext context)
+        public static void SeedDbData(DbContext context)
         {
             var categories = new List<CategoryModels>
             {
@@ -24,7 +20,7 @@ namespace KacikFryzjerski.DAL
                 new CategoryModels() { Id = 3, Category_name = "Grzebienie" }
             };
 
-            categories.ForEach(k => context.categories.Add(k));
+            categories.ForEach(k => context.categories.AddOrUpdate(k));
             context.SaveChanges();
 
             var items = new List<ItemModels>
@@ -57,7 +53,7 @@ namespace KacikFryzjerski.DAL
                     Item_created_at = DateTime.Now},
             };
 
-            items.ForEach(k => context.items.Add(k));
+            items.ForEach(k => context.items.AddOrUpdate(k));
             context.SaveChanges();
         }
     }
