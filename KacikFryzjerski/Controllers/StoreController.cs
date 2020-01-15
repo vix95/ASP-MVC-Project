@@ -1,4 +1,6 @@
 ﻿using KacikFryzjerski.DAL;
+using KacikFryzjerski.Infrastructure;
+using KacikFryzjerski.Models;
 using KacikFryzjerski.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -30,10 +32,23 @@ namespace KacikFryzjerski.Controllers
         }
 
         [ChildActionOnly]
+        [OutputCache(Duration = 60000)]
         public ActionResult CategoryMenu()
         {
-            var storeCategories = db.Categories.OrderByDescending(x => x.Category_name).ToList();
-            return PartialView("_CategoryMenu", storeCategories);
+            ICacheProvider cache = new DefaultCacheProvider();
+            List<CategoryModels> categories;
+
+            if (cache.IsSet(Consts.CategoriesCacheKey))
+            {
+                categories = cache.Get(Consts.CategoriesCacheKey) as List<CategoryModels>;
+            }
+            else
+            {
+                categories = db.Categories.OrderByDescending(x => x.Category_name).ToList();
+                cache.Set(Consts.CategoriesCacheKey, categories, 60);
+            }
+
+            return PartialView("_CategoryMenu", categories);
         }
 
         public ActionResult Detail(int product_id)
