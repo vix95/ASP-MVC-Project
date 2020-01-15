@@ -8,20 +8,30 @@
 <table>
     <tr>
         <td id="categories">
-            @Html.Action("CategoryMenu")
+            <div>
+                <ul>
+                    @foreach (var storeCategory in Model.StoreCategories)
+                    {
+                    <li>
+                        <a class="store-category" href="@Url.Action("CategoryList", "Store", new { category_id = storeCategory.Id })">@storeCategory.Category_name.ToString()</a>
+
+                    </li>
+                    }
+                </ul>
+            </div>
         </td>
         <td id="products">
             <div>
                 <table>
                     <tr>
-                        @foreach (var storeProduct in Model.StoreProducts)
+                        @foreach (var storeItem in Model.StoreItems)
                         {
                             <td>
-                                <div id="product-image"><img src="@Url.StoreItemImagePath(storeProduct.Product_image_path)" /></div>
-                                <div id="product-title"><a href="@Url.Action("ProductDetails", "Store", new { id = storeProduct.Id })">@storeProduct.Product_name</a></div>
-                                <div id="product-description">@storeProduct.Product_description</div>
-                                <div id="produdct-price">@storeProduct.Product_price</div>
-                                <a class="btn btn-primary" href="@Url.Action("AddToCart", "Cart", new { id = storeProduct.Id })">Dodaj do koszyka</a>
+                                <div class="product-image"><img src="@Url.StoreItemImagePath(storeItem.Item_image_path)"</div>
+                                <div class="product-title"><a href="@Url.Action("ItemDetails", "Store", new { id = storeItem.Id })">@storeItem.Item_name</a></div>
+                                <div class="product-description">@storeItem.Item_description</div>
+                                <div class="produdct-price">@storeItem.Item_price</div>
+                                <a class="btn btn-primary" href="@Url.Action("AddToCart", "Cart", new { id = storeItem.Id })">Dodaj do koszyka</a>
                             </td>
                         }
                     </tr>

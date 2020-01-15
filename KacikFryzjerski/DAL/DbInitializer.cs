@@ -23,37 +23,37 @@ namespace KacikFryzjerski.DAL
             categories.ForEach(k => context.categories.AddOrUpdate(k));
             context.SaveChanges();
 
-            var items = new List<ProductModels>
+            var items = new List<ItemModels>
             {
-                new ProductModels() { 
+                new ItemModels() { 
                     Id = 1,
-                    Product_category_id = 1, 
-                    Product_name = "Trwały lakier",
-                    Product_description = "Lakier zapewniający trwałą fryzurę na kilka godzin",
-                    Product_price = 12.99,
-                    Product_image_path = "trwaly_lakier.jpg",
-                    Product_created_at = DateTime.Now},
+                    Item_category_id = 1, 
+                    Item_name = "Trwały lakier",
+                    Item_description = "Lakier zapewniający trwałą fryzurę na kilka godzin",
+                    Item_price = 12.99,
+                    Item_image_path = "trwaly_lakier.jpg",
+                    Item_created_at = DateTime.Now},
 
-                new ProductModels() {
+                new ItemModels() {
                     Id = 2,
-                    Product_category_id = 1,
-                    Product_name = "Pół trwały lakier",
-                    Product_description = "Pół trwały lakier zapewniający pół trwałą fryzurę na kilka godzin",
-                    Product_price = 10.99,
-                    Product_image_path = "trwaly_lakier.jpg",
-                    Product_created_at = DateTime.Now},
+                    Item_category_id = 1,
+                    Item_name = "Pół trwały lakier",
+                    Item_description = "Pół trwały lakier zapewniający pół trwałą fryzurę na kilka godzin",
+                    Item_price = 10.99,
+                    Item_image_path = "trwaly_lakier.jpg",
+                    Item_created_at = DateTime.Now},
 
-                new ProductModels() {
+                new ItemModels() {
                     Id = 3,
-                    Product_category_id = 2,
-                    Product_name = "Profesjonalne nożyczki",
-                    Product_description = "Profesjonalne nożyczki zapewnią Tobie profesjonalne cięcie.",
-                    Product_price = 59.89,
-                    Product_image_path = "trwaly_lakier.jpg",
-                    Product_created_at = DateTime.Now},
+                    Item_category_id = 2,
+                    Item_name = "Profesjonalne nożyczki",
+                    Item_description = "Profesjonalne nożyczki zapewnią Tobie profesjonalne cięcie.",
+                    Item_price = 59.89,
+                    Item_image_path = "trwaly_lakier.jpg",
+                    Item_created_at = DateTime.Now},
             };
 
-            items.ForEach(k => context.products.AddOrUpdate(k));
+            items.ForEach(k => context.items.AddOrUpdate(k));
             context.SaveChanges();
         }
     }

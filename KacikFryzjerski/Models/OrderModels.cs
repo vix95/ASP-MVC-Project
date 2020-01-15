@@ -37,7 +37,7 @@ namespace KacikFryzjerski.Models
         public OrderStatus Order_order_status { get; set; }
         public decimal Order_total_order_price { get; set; }
 
-        List<OrderProductModels> Order_orderProducts { get; set; }
+        List<OrderItemModels> Order_orderItems { get; set; }
     }
 
     public enum OrderStatus

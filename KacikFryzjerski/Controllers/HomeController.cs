@@ -13,7 +13,7 @@ namespace KacikFryzjerski.Controllers
         private readonly DbContext db = new DbContext();
         public ActionResult Index()
         {
-            var bestsellers = db.products.OrderBy(x => Guid.NewGuid()).Take(6).ToList();
+            var bestsellers = db.items.OrderBy(x => Guid.NewGuid()).Take(6).ToList();
             var home_view_model = new HomeViewModel()
             {
                 Bestsellers = bestsellers

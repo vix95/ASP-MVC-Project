@@ -191,21 +191,13 @@
     <Compile Include="Migrations\202001150716458_added field for ItemModels.Designer.cs">
       <DependentUpon>202001150716458_added field for ItemModels.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001150942032_changed models.cs" />
-    <Compile Include="Migrations\202001150942032_changed models.Designer.cs">
-      <DependentUpon>202001150942032_changed models.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001150946367_changed models 2.cs" />
-    <Compile Include="Migrations\202001150946367_changed models 2.Designer.cs">
-      <DependentUpon>202001150946367_changed models 2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CategoryModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ProductModels.cs" />
+    <Compile Include="Models\ItemModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\OrderProductModels.cs" />
+    <Compile Include="Models\OrderItemModels.cs" />
     <Compile Include="Models\OrderModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -270,7 +262,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Cart\AddToCart.cshtml" />
-    <Content Include="Views\Store\ProductDetails.cshtml" />
+    <Content Include="Views\Store\ItemDetails.cshtml" />
     <Content Include="Views\Store\Products.cshtml" />
     <Content Include="Views\Store\_CategoryMenu.cshtml" />
     <Content Include="Views\Store\CategoryList.cshtml" />
@@ -301,12 +293,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001150716458_added field for ItemModels.resx">
       <DependentUpon>202001150716458_added field for ItemModels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001150942032_changed models.resx">
-      <DependentUpon>202001150942032_changed models.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001150946367_changed models 2.resx">
-      <DependentUpon>202001150946367_changed models 2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

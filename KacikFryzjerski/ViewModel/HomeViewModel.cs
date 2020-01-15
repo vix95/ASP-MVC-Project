@@ -8,8 +8,8 @@ namespace KacikFryzjerski.ViewModel
 {
     public class HomeViewModel
     {
-        public IEnumerable<ProductModels> Bestsellers { get; set; }
-        public IEnumerable<ProductModels> StoreProducts { get; set; }
+        public IEnumerable<ItemModels> Bestsellers { get; set; }
+        public IEnumerable<ItemModels> StoreItems { get; set; }
         public IEnumerable<CategoryModels> StoreCategories { get; set; }
     }
 }

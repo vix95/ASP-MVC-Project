@@ -20,10 +20,10 @@ namespace KacikFryzjerski.DAL
             Database.SetInitializer<DbContext>(new DbInitializer());
         }
 
-        public DbSet<ProductModels> products { get; set; }
+        public DbSet<ItemModels> items { get; set; }
         public DbSet<CategoryModels> categories { get; set; }
         public DbSet<OrderModels> orders { get; set; }
-        public DbSet<OrderProductModels> orderItems { get; set; }
+        public DbSet<OrderItemModels> orderItems { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

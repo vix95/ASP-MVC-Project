@@ -13,6 +13,6 @@ namespace KacikFryzjerski.Models
         [StringLength(100)]
         public string Category_name { get; set; }
 
-        public virtual ICollection<ProductModels> Category_Items { get; set; }
+        public virtual ICollection<ItemModels> Category_Items { get; set; }
     }
 }
