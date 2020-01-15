@@ -35,9 +35,9 @@ namespace KacikFryzjerski.Models
         public string Order_email { get; set; }
         public DateTime Order_ordered_at { get; set; }
         public OrderStatus Order_order_status { get; set; }
-        public decimal Order_total_order_price { get; set; }
+        public double Order_total_order_price { get; set; }
 
-        List<OrderProductModels> Order_orderProducts { get; set; }
+        public List<OrderPositionModels> OrderPosition { get; set; }
     }
 
     public enum OrderStatus
