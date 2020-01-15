@@ -25,7 +25,7 @@
                     <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
                     <li>@Html.ActionLink("Informacje", "About", "Home")</li>
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Sklep", "Index", "Store")</li>
+                    <li>@Html.ActionLink("Sklep", "CategoryList", "Store", new { category_id = "All" }, null)</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

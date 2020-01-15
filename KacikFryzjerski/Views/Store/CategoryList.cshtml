@@ -1,10 +1,16 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "CategoryList";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div id="sitemap">@Html.MvcSiteMap().SiteMapPath()</div>
+
+<form id="search-form" method="get" data-ajax="true" data-ajax-target="#products">
+    <input id="search-filter" type="search" name="searchQuery"
+           data-autocomplete-source="@Url.Action("ProductHint")"
+           placeholder="Wprowadź tekst, aby wyfiltrować..." />
+    <input type="submit" value="" />
+</form>
 
 <table>
     <tr>
@@ -18,3 +24,45 @@
         </td>
     </tr>
 </table>
+
+@section Scripts
+{
+    @System.Web.Optimization.Scripts.Render("~/bundles/jquery")
+
+    <script>
+        $(function () {
+            var setupAutoComplete = function () {
+                var $input = $(this);
+                var options =
+                {
+                    source: $input.attr("data-autocomplete-source"),
+                    select: function (event, ui) {
+                        $input = $(this);
+                        $input.val(ui.item.label);
+                        var $form = $input.parents("form:first");
+                        $form.submit();
+                    }
+                };
+                $input.autocomplete(options);
+            };
+
+            var ajaxSubmit = function () {
+                var $form = $(this);
+                var settings = {
+                    data: $(this).serialize(),
+                    url: $(this).attr("action"),
+                    type: $(this).attr("method")
+                };
+                $.ajax(settings).done(function (result) {
+                    var $targetElement = $($form.data("ajax-target"));
+                    var $newContent = $(result);
+                    $($targetElement).replaceWith($newContent);
+                });
+                return false;
+            };
+
+            $("#search-filter").each(setupAutoComplete);
+            $("#search-form").submit(ajaxSubmit);
+        });
+    </script>
+}

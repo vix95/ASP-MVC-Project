@@ -331,7 +331,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Cart\AddToCart.cshtml" />
     <Content Include="Views\Store\Detail.cshtml" />
-    <Content Include="Views\Store\Index.cshtml" />
     <Content Include="Views\Store\_CategoryMenu.cshtml" />
     <Content Include="Views\Store\CategoryList.cshtml" />
     <Content Include="Views\Store\_CategoryList.cshtml" />

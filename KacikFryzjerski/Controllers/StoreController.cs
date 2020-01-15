@@ -13,30 +13,27 @@ namespace KacikFryzjerski.Controllers
     public class StoreController : Controller
     {
         private readonly DbContext db = new DbContext();
-        public ActionResult Index()
+
+        public ActionResult CategoryList(string category_id, string searchQuery = null)
         {
-            var home_view_model = new HomeViewModel()
+            if (Request.IsAjaxRequest())
             {
-                StoreProducts = db.Products.OrderByDescending(x => x.Id).ToList(),
-                StoreCategories = db.Categories.OrderByDescending(x => x.Id).ToList()
-            };
-
-            return View(home_view_model);
-        }
-
-        public ActionResult CategoryList(int category_id, string searchQuery = null)
-        {
-            //var products = db.Products.OrderByDescending(x => x.Id).Where(x => x.Product_category_id == category_id).ToList();
-            var products = db.Products.OrderByDescending(x => x.Id)
+                var products = db.Products.OrderByDescending(x => x.Id)
                 .Where(x => (searchQuery == null ||
                 x.Product_name.ToLower().Contains(searchQuery.ToLower())));
 
-            if (Request.IsAjaxRequest())
-            {
                 return PartialView("_CategoryList", products);
             }
-
-            return View(products);
+            else if (category_id == "All" || category_id == null)
+            {
+                var products = db.Products.OrderByDescending(x => x.Id).ToList();
+                return View(products);
+            }
+            else
+            {
+                var products = db.Products.OrderByDescending(x => x.Id).Where(x => x.Product_category_id.ToString() == category_id).ToList();
+                return View(products);
+            }
         }
 
         [ChildActionOnly]
