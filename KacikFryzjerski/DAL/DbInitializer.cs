@@ -20,40 +20,40 @@ namespace KacikFryzjerski.DAL
                 new CategoryModels() { Id = 3, Category_name = "Grzebienie" }
             };
 
-            categories.ForEach(k => context.categories.AddOrUpdate(k));
+            categories.ForEach(k => context.Categories.AddOrUpdate(k));
             context.SaveChanges();
 
-            var items = new List<ItemModels>
+            var products = new List<ProductModels>
             {
-                new ItemModels() { 
+                new ProductModels() { 
                     Id = 1,
-                    Item_category_id = 1, 
-                    Item_name = "Trwały lakier",
-                    Item_description = "Lakier zapewniający trwałą fryzurę na kilka godzin",
-                    Item_price = 12.99,
-                    Item_image_path = "trwaly_lakier.jpg",
-                    Item_created_at = DateTime.Now},
+                    Product_category_id = 1, 
+                    Product_name = "Trwały lakier",
+                    Product_description = "Lakier zapewniający trwałą fryzurę na kilka godzin",
+                    Product_price = 12.99,
+                    Product_image_path = "trwaly_lakier.jpg",
+                    Product_created_at = DateTime.Now},
 
-                new ItemModels() {
+                new ProductModels() {
                     Id = 2,
-                    Item_category_id = 1,
-                    Item_name = "Pół trwały lakier",
-                    Item_description = "Pół trwały lakier zapewniający pół trwałą fryzurę na kilka godzin",
-                    Item_price = 10.99,
-                    Item_image_path = "trwaly_lakier.jpg",
-                    Item_created_at = DateTime.Now},
+                    Product_category_id = 1,
+                    Product_name = "Pół trwały lakier",
+                    Product_description = "Pół trwały lakier zapewniający pół trwałą fryzurę na kilka godzin",
+                    Product_price = 10.99,
+                    Product_image_path = "trwaly_lakier.jpg",
+                    Product_created_at = DateTime.Now},
 
-                new ItemModels() {
+                new ProductModels() {
                     Id = 3,
-                    Item_category_id = 2,
-                    Item_name = "Profesjonalne nożyczki",
-                    Item_description = "Profesjonalne nożyczki zapewnią Tobie profesjonalne cięcie.",
-                    Item_price = 59.89,
-                    Item_image_path = "trwaly_lakier.jpg",
-                    Item_created_at = DateTime.Now},
+                    Product_category_id = 2,
+                    Product_name = "Profesjonalne nożyczki",
+                    Product_description = "Profesjonalne nożyczki zapewnią Tobie profesjonalne cięcie.",
+                    Product_price = 59.89,
+                    Product_image_path = "trwaly_lakier.jpg",
+                    Product_created_at = DateTime.Now},
             };
 
-            items.ForEach(k => context.items.AddOrUpdate(k));
+            products.ForEach(k => context.Products.AddOrUpdate(k));
             context.SaveChanges();
         }
     }

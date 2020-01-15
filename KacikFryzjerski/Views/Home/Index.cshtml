@@ -41,11 +41,11 @@
                 @foreach (var bestseller in Model.Bestsellers)
                 {
                     <td>
-                        <div class="product-image"><img src="@Url.StoreItemImagePath(bestseller.Item_image_path)"</div>
-                        <div class="product-title"><a href="@Url.Action("ItemDetails", "Store", new { id = bestseller.Id })">@bestseller.Item_name</a></div>
-                        <div class="product-description">@bestseller.Item_description</div>
-                        <div class="produdct-price">@bestseller.Item_price</div>
-                        <a class="btn btn-primary" href="@Url.Action("AddToCart", "Cart", new { id = bestseller.Id })">Dodaj do koszyka</a>
+                        <div id="product-image"><img src="@Url.StoreItemImagePath(bestseller.Product_image_path)"</div>
+                        <div id="product-title"><a href="@Url.Action("ProductDetails", "Store", new { product_id = bestseller.Id })">@bestseller.Product_name</a></div>
+                        <div id="product-description">@bestseller.Product_description</div>
+                        <div id="produdct-price">@bestseller.Product_price</div>
+                        <a class="btn btn-primary" href="@Url.Action("AddToCart", "Cart", new { product_id = bestseller.Id })">Dodaj do koszyka</a>
                     </td>
                 }
             </tr>

@@ -13,7 +13,7 @@ namespace KacikFryzjerski.Controllers
             return View();
         }
 
-        public ActionResult AddToCart(string id)
+        public ActionResult AddToCart(int product_id)
         {
             return View();
         }

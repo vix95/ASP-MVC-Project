@@ -206,3 +206,4 @@ C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFr
 C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.pdb
 C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.addedfield.resources
 C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.addedfieldforItemModels.resources
+C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.changednameofmodels.resources

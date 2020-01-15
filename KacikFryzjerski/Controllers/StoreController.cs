@@ -15,8 +15,8 @@ namespace KacikFryzjerski.Controllers
         {
             var home_view_model = new HomeViewModel()
             {
-                StoreItems = db.items.OrderByDescending(x => x.Id).ToList(),
-                StoreCategories = db.categories.OrderByDescending(x => x.Category_name).ToList()
+                StoreProducts = db.Products.OrderByDescending(x => x.Id).ToList(),
+                StoreCategories = db.Categories.OrderByDescending(x => x.Category_name).ToList()
             };
 
             return View(home_view_model);
@@ -26,7 +26,7 @@ namespace KacikFryzjerski.Controllers
         {
             //var category = db.categories.Include("Category_Items").Where(x => x.Category_name.ToUpper() == category_name.ToUpper()).Single();
             //var items = category.Category_Items.ToList();
-            var items = db.items.OrderByDescending(x => x.Id).Where(x => x.Item_category_id == category_id).ToList();
+            var items = db.Products.OrderByDescending(x => x.Id).Where(x => x.Product_category_id == category_id).ToList();
 
             return View(items);
         }
@@ -34,14 +34,14 @@ namespace KacikFryzjerski.Controllers
         [ChildActionOnly]
         public ActionResult CategoryMenu()
         {
-            var storeCategories = db.categories.OrderByDescending(x => x.Category_name).ToList();
+            var storeCategories = db.Categories.OrderByDescending(x => x.Category_name).ToList();
             return PartialView("_CategoryMenu", storeCategories);
         }
 
-        public ActionResult ItemDetails(string id)
+        public ActionResult ProductDetails(string product_id)
         {
-
-            return View();
+            var product = db.Products.Find(product_id);
+            return View(product);
         }
     }
 }
