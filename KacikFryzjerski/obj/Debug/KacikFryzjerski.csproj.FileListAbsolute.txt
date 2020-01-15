@@ -217,3 +217,4 @@ C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\bin\MvcSiteMapProvider
 C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.addedfield.resources
 C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.addedfieldforItemModels.resources
 C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.changednameofmodels.resources
+C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\bin\AspNet.ScriptManager.jQuery.UI.Combined.dll

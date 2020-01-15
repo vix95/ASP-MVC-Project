@@ -24,11 +24,19 @@ namespace KacikFryzjerski.Controllers
             return View(home_view_model);
         }
 
-        public ActionResult CategoryList(int category_id)
+        public ActionResult CategoryList(int category_id, string searchQuery = null)
         {
-            var items = db.Products.OrderByDescending(x => x.Id).Where(x => x.Product_category_id == category_id).ToList();
+            //var products = db.Products.OrderByDescending(x => x.Id).Where(x => x.Product_category_id == category_id).ToList();
+            var products = db.Products.OrderByDescending(x => x.Id)
+                .Where(x => (searchQuery == null ||
+                x.Product_name.ToLower().Contains(searchQuery.ToLower())));
 
-            return View(items);
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_CategoryList", products);
+            }
+
+            return View(products);
         }
 
         [ChildActionOnly]
@@ -55,6 +63,14 @@ namespace KacikFryzjerski.Controllers
         {
             var product = db.Products.Find(product_id);
             return View(product);
+        }
+
+        public ActionResult ProductHint(string term)
+        {
+            var products = db.Products.Where(x => x.Product_name.ToLower().Contains(term.ToLower())).Take(5)
+                .Select(x => new { label = x.Product_name });
+
+            return Json(products, JsonRequestBehavior.AllowGet);
         }
     }
 }
