@@ -262,7 +262,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Cart\AddToCart.cshtml" />
-    <Content Include="Views\Home\ItemDetails.cshtml" />
+    <Content Include="Views\Store\ItemDetails.cshtml" />
     <Content Include="Views\Store\Products.cshtml" />
     <Content Include="Views\Store\_CategoryMenu.cshtml" />
     <Content Include="Views\Store\CategoryList.cshtml" />

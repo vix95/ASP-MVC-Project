@@ -7,7 +7,7 @@
         {
             <td>
                 <div class="product-image"><img src="@Url.StoreItemImagePath(storeItem.Item_image_path)"</div>
-                <div class="product-title"><a href="@Url.Action("ItemDetails", "Home", new { id = storeItem.Id })">@storeItem.Item_name</a></div>
+                <div class="product-title"><a href="@Url.Action("ItemDetails", "Store", new { id = storeItem.Id })">@storeItem.Item_name</a></div>
                 <div class="product-description">@storeItem.Item_description</div>
                 <div class="produdct-price">@storeItem.Item_price</div>
                 <a class="btn btn-primary" href="@Url.Action("AddToCart", "Cart", new { id = storeItem.Id })">Dodaj do koszyka</a>

@@ -37,5 +37,11 @@ namespace KacikFryzjerski.Controllers
             var storeCategories = db.categories.OrderByDescending(x => x.Category_name).ToList();
             return PartialView("_CategoryMenu", storeCategories);
         }
+
+        public ActionResult ItemDetails(string id)
+        {
+
+            return View();
+        }
     }
 }
