@@ -218,3 +218,12 @@ C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjer
 C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.addedfieldforItemModels.resources
 C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.changednameofmodels.resources
 C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\bin\AspNet.ScriptManager.jQuery.UI.Combined.dll
+C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\bin\AspNet.ScriptManager.jQuery.UI.Combined.dll
+C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\bin\MvcSiteMapProvider.dll
+C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\bin\MvcSiteMapProvider.WebActivator.dll
+C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\bin\WebActivatorEx.dll
+C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\bin\Microsoft.Web.Administration.dll
+C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\bin\MvcSiteMapProvider.xml
+C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\bin\MvcSiteMapProvider.WebActivator.pdb
+C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\bin\MvcSiteMapProvider.WebActivator.xml
+C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.addedcartmodel.resources

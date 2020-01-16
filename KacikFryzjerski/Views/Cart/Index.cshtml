@@ -1,0 +1,61 @@
+﻿@model  KacikFryzjerski.ViewModel.CartViewModel
+@using KacikFryzjerski.Infrastructure
+
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="sitemap">@Html.MvcSiteMap().SiteMapPath()</div>
+
+<table>
+    <tr>
+        <td id="categories">
+            @Html.Action("CategoryMenu", "Store")
+        </td>
+        <td id="cart-view">
+            <div>
+                <table id="cart-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Produkt</th>
+                            <th>Ilość</th>
+                            <th>Cena</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var cartPosition in Model.cartPositions)
+                        {
+                            <tr id="cart-row-@cartPosition.Product.Id" class="product-row">
+                                <td id="product-image-cart"><img src="@Url.StoreItemImagePath(cartPosition.Product.Product_image_path)" /></td>
+                                <td id="product-name-cart">@cartPosition.Product.Product_name</td>
+                                <td id="produdct-quantity-cart"><span id="cart-quantity-@cartPosition.Product.Id">@cartPosition.quantity</span></td>
+                                <td id="produdct-price-cart">@string.Format("{0:0.##}", cartPosition.price) <text>PLN</text></td>
+                                <td><a class="product-delete btn btn-danger" data-id="@cartPosition.Product.Id" href="#">Usuń</a></td>
+                            </tr>
+                        }
+
+                        <tr id="cart-empty-message" @if (Model.cartPositions != null && Model.cartPositions.Count > 0) { <text> class="hidden" </text> }>
+                            <td>Twój koszyk jest pusty.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div id="cart-total-price">
+                    Razem: <span id="cart-total-price-value">@string.Format("{0:0.##}", Model.TotalPrice)</span> zł
+                </div>
+
+                <div class="cart-buttons">
+                    <a class="btn btn-primary" href="link">Kontynuuj zakupy</a>
+
+                    @if (Model.TotalPrice > 0)
+                    {
+                        <a id="cart-button-pay" class="btn btn-success" href="@Url.Action("Pay", "Store")">Zapłać</a>
+                    }
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
