@@ -227,3 +227,4 @@ C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\bin\MvcSiteMapPro
 C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\bin\MvcSiteMapProvider.WebActivator.pdb
 C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\bin\MvcSiteMapProvider.WebActivator.xml
 C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.addedcartmodel.resources
+C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.addedAccount.resources
