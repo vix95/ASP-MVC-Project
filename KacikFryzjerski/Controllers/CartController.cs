@@ -41,5 +41,27 @@ namespace KacikFryzjerski.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public int GetCartElemenetsQuantity()
+        {
+            return cartManager.GetQuantityCartPosition();
+        }
+
+        public ActionResult DeleteFromCart(int product_id)
+        {
+            int positionsQuantity = cartManager.DeleteFromCart(product_id);
+            int positionsQuantityCart = cartManager.GetQuantityCartPosition();
+            double cartValue = cartManager.GetCartValue();
+
+            var result = new CartDeletingViewModel()
+            {
+                PositionIdToDelete = product_id,
+                PositionsQuantityToDelete = positionsQuantity,
+                CartTotalValue = cartValue,
+                CartPositionsQuantity = positionsQuantityCart
+            };
+
+            return Json(result);
+        }
     }
 }

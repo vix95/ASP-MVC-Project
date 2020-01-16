@@ -16,7 +16,7 @@
         <td id="cart-view">
             <div>
                 <table id="cart-table">
-                    <thead>
+                    <thead id="cart-head">
                         <tr>
                             <th></th>
                             <th>Produkt</th>
@@ -59,3 +59,41 @@
         </td>
     </tr>
 </table>
+
+@section Scripts{
+    @System.Web.Optimization.Scripts.Render("~/bundles/jquery")
+
+    <script type="text/javascript">
+        $(function () {
+            $(".product-delete").click(function () {
+
+                var record_to_delete = $(this).attr("data-id");
+
+                if (record_to_delete != '') {
+                    $.post("/Cart/DeleteFromCart", { "product_id": record_to_delete },
+                        function (response) {
+                            if (response.PositionsQuantityToDelete == 0) {
+
+                                $('#cart-row-' + response.PositionIdToDelete).fadeOut('slow', function () {
+                                    if (response.CartPositionsQuantity == 0) {
+                                        $("#cart-empty-message").removeClass("hidden");
+                                    }
+                                });
+                            } else {
+                                $('#cart-quantity-' + response.PositionIdToDelete).text(response.PositionsQuantityToDelete);
+                            }
+
+                            if (response.CartPositionsQuantity == 0) {
+                                $('#cart-head').addClass('hidden');
+                                $('#cart-button-pay').addClass('hidden');
+                                $('#cart-total-price').addClass('invisible');
+                            }
+                            $('#cart-total-price-value').text(response.CartTotalValue);
+                            $('#cart-elements-quantity').text(response.CartPositionsQuantity);
+                        });
+                    return false;
+                }
+            });
+        });
+    </script>
+}

@@ -27,6 +27,9 @@
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Sklep", "CategoryList", "Store", new { category_id = "All" }, null)</li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a id="cart-element" href="link">Koszyk (<span id="cart-elements-quantity">@Html.Action("GetCartElemenetsQuantity", "Cart")</span>)</a></li>
+                </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>

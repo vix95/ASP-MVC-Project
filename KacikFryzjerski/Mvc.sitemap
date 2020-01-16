@@ -3,10 +3,14 @@
             xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
             xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
 
-  <mvcSiteMapNode title="Home" controller="Home" action="Index">
+  <mvcSiteMapNode title="Strona Główna" controller="Home" action="Index">
     <mvcSiteMapNode title="Sklep" controller="Store" action="CategoryList" category_id="All">
       <mvcSiteMapNode title="Categories" controller="Store" action="CategoryList" dynamicNodeProvider="KacikFryzjerski.Infrastructure.CategoryDynamicNodeProvider, KacikFryzjerski" >
         <mvcSiteMapNode title="Product" controller="Store" action="Detail" dynamicNodeProvider="KacikFryzjerski.Infrastructure.ProductDetailsDynamicNodeProvider, KacikFryzjerski" />
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Koszyk" controller="Cart" action="Index">
+        <mvcSiteMapNode title="Dane Zamówienia" controller="Cart" action="Pay" />
+        <mvcSiteMapNode title="Potwierdzenie Zamówienia" controller="Cart" action="ConfirmOrder" />
       </mvcSiteMapNode>
     </mvcSiteMapNode>
   </mvcSiteMapNode>
