@@ -48,12 +48,12 @@ namespace KacikFryzjerski.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required (ErrorMessage = "Musisz wprowadzić adres e-mail")]
         [Display(Name = "Adres e-mail")]
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
+        [Required (ErrorMessage = "Musisz wprowadzić hasło")]
         [DataType(DataType.Password)]
         [Display(Name = "Hasło")]
         public string Password { get; set; }
@@ -64,13 +64,13 @@ namespace KacikFryzjerski.Models
 
     public class RegisterViewModel
     {
-        [Required]
+        [Required (ErrorMessage = "Musisz wprowadzić adres e-mail")]
         [EmailAddress]
         [Display(Name = "Adres e-mail")]
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "{0} musi zawierać co najmniej następującą liczbę znaków: {2}.", MinimumLength = 6)]
+        [StringLength(20, ErrorMessage = "{0} musi zawierać co najmniej następującą liczbę znaków: {2}.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Hasło")]
         public string Password { get; set; }
