@@ -1,13 +1,9 @@
 ﻿using KacikFryzjerski.DAL;
 using KacikFryzjerski.Infrastructure;
-using KacikFryzjerski.Models;
 using KacikFryzjerski.ViewModel;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -66,69 +62,6 @@ namespace KacikFryzjerski.Controllers
             };
 
             return Json(result);
-        }
-
-        public async Task<ActionResult> Zaplac()
-        {
-            var name = User.Identity.Name;
-
-            if (Request.IsAuthenticated)
-            {
-                var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
-                var order = new OrderModels
-                {
-                    Order_name = user.AccountData.Name,
-                    Order_surname = user.AccountData.Surname,
-                    Order_address = user.AccountData.Address,
-                    Order_city = user.AccountData.City,
-                    Order_postcode = user.AccountData.Postcode,
-                    Order_email = user.AccountData.Email,
-                    Order_phone = user.AccountData.Phone
-                };
-                return View(order);
-            }
-            else
-                return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Pay", "Cart") });
-        }
-
-        [HttpPost]
-        public async Task<ActionResult> Pay(OrderModels orderDetails)
-        {
-            if (ModelState.IsValid)
-            {
-                var user_id = User.Identity.GetUserId();
-                var newOrder = cartManager.CreateOrder(orderDetails, user_id);
-                var user = await UserManager.FindByIdAsync(user_id);
-                TryUpdateModel(user.AccountData);
-                await UserManager.UpdateAsync(user);
-
-                cartManager.EmptyCart();
-
-                //maileService.WyslaniePotwierdzenieZamowieniaEmail(newOrder);
-
-                return RedirectToAction("OrderConfirmation");
-            }
-            else
-                return View(orderDetails);
-        }
-
-        public ActionResult OrderConfirmation()
-        {
-            var name = User.Identity.Name;
-            return View();
-        }
-
-        private ApplicationUserManager _userManager;
-        public ApplicationUserManager UserManager
-        {
-            get
-            {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            }
-            private set
-            {
-                _userManager = value;
-            }
         }
     }
 }

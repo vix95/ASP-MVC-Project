@@ -20,11 +20,6 @@ namespace KacikFryzjerski.DAL
             Database.SetInitializer<ProjectDbContext>(new DbInitializer());
         }
 
-        public static ProjectDbContext Create()
-        {
-            return new ProjectDbContext();
-        }
-
         public DbSet<ProductModels> Products { get; set; }
         public DbSet<CategoryModels> Categories { get; set; }
         public DbSet<OrderModels> Orders { get; set; }
