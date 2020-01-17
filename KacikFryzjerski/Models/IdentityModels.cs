@@ -11,8 +11,8 @@ namespace KacikFryzjerski.Models
     public class ApplicationUser : IdentityUser
 
     {
-        public virtual ICollection<OrderModels> Orders { get; set; }
-        public AccountData AccountData { get; set; }
+        //public virtual ICollection<OrderModels> Orders { get; set; }
+        //public AccountData AccountData { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
