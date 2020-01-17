@@ -227,6 +227,18 @@
     <Compile Include="Migrations\202001171904263_renamed database.Designer.cs">
       <DependentUpon>202001171904263_renamed database.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001171910002_added field to AccountData.cs" />
+    <Compile Include="Migrations\202001171910002_added field to AccountData.Designer.cs">
+      <DependentUpon>202001171910002_added field to AccountData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001171912578_added field to OrderModels.cs" />
+    <Compile Include="Migrations\202001171912578_added field to OrderModels.Designer.cs">
+      <DependentUpon>202001171912578_added field to OrderModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001171932599_changed name of field for AccountData.cs" />
+    <Compile Include="Migrations\202001171932599_changed name of field for AccountData.Designer.cs">
+      <DependentUpon>202001171932599_changed name of field for AccountData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountData.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -362,6 +374,7 @@
     <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\Pay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -400,6 +413,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001171904263_renamed database.resx">
       <DependentUpon>202001171904263_renamed database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001171910002_added field to AccountData.resx">
+      <DependentUpon>202001171910002_added field to AccountData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001171912578_added field to OrderModels.resx">
+      <DependentUpon>202001171912578_added field to OrderModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001171932599_changed name of field for AccountData.resx">
+      <DependentUpon>202001171932599_changed name of field for AccountData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

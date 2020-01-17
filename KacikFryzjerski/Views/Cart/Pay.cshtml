@@ -1,0 +1,61 @@
+﻿@model KacikFryzjerski.Models.OrderModels
+
+@{
+    ViewBag.Title = "Pay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section SectionTitle{
+    Uzupełnij dane zamówienia
+}
+
+
+@using (@Html.BeginForm("Pay", "Cart"))
+{
+    <table id="checkout-address-table">
+        <tr>
+            <td>@Html.LabelFor(o => o.Order_name, "Imię:")</td>
+            <td>@Html.TextBoxFor(o => o.Order_name)</td>
+            <td>@Html.ValidationMessageFor(o => o.Order_name)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(o => o.Order_surname, "Nazwisko")</td>
+            <td>@Html.TextBoxFor(o => o.Order_surname)</td>
+            <td>@Html.ValidationMessageFor(o => o.Order_surname)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(o => o.Order_address, "Adres")</td>
+            <td>@Html.TextBoxFor(o => o.Order_address)</td>
+            <td>@Html.ValidationMessageFor(o => o.Order_address)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(o => o.Order_city, "Miasto")</td>
+            <td>@Html.TextBoxFor(o => o.Order_city)</td>
+            <td>@Html.ValidationMessageFor(o => o.Order_city)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(o => o.Order_postcode, "Kod pocztowy")</td>
+            <td>@Html.TextBoxFor(o => o.Order_postcode)</td>
+            <td>@Html.ValidationMessageFor(o => o.Order_postcode)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(o => o.Order_phone, "Numer telefonu")</td>
+            <td>@Html.TextBoxFor(o => o.Order_phone)</td>
+            <td>@Html.ValidationMessageFor(o => o.Order_phone)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(o => o.Order_email, "Adres e-mail")</td>
+            <td>@Html.TextBoxFor(o => o.Order_email)</td>
+            <td>@Html.ValidationMessageFor(o => o.Order_email)</td>
+        </tr>
+    </table>
+
+    @Html.ValidationSummary()
+
+    <hr style="margin-bottom: 50px;" />
+
+    <div class="section-buttons">
+        <a class="button-link" href="">Wróć</a>
+        <input type="submit" class="button-link btn btn-success" style="" value="Potwierdź" />
+    </div>
+}

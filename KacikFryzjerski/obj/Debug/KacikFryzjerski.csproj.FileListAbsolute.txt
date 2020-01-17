@@ -231,3 +231,6 @@ C:\Users\tczplabu\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFr
 C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.addedcartmodel.resources
 C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.addedAccount.resources
 C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.renameddatabase.resources
+C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.addedfieldtoAccountData.resources
+C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.addedfieldtoOrderModels.resources
+C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.changednameoffieldforAccountData.resources
