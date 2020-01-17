@@ -10,7 +10,7 @@ namespace KacikFryzjerski.Infrastructure
 {
     public class CategoryDynamicNodeProvider : DynamicNodeProviderBase
     {
-        private ProjectDbContext db = new ProjectDbContext();
+        private DbContext db = new DbContext();
         public override IEnumerable<DynamicNode> GetDynamicNodeCollection(ISiteMapNode node)
         {
             var returnValue = new List<DynamicNode>();

@@ -12,7 +12,7 @@ namespace KacikFryzjerski.Controllers
 {
     public class StoreController : Controller
     {
-        private readonly ProjectDbContext db = new ProjectDbContext();
+        private readonly DbContext db = new DbContext();
 
         public ActionResult CategoryList(string category_id, string searchQuery = null)
         {

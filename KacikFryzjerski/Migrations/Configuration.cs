@@ -6,15 +6,15 @@ namespace KacikFryzjerski.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    public sealed class Configuration : DbMigrationsConfiguration<KacikFryzjerski.DAL.ProjectDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<KacikFryzjerski.DAL.DbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "KacikFryzjerski.DAL.ProjectDbContext";
+            ContextKey = "KacikFryzjerski.DAL.DbContext";
         }
 
-        protected override void Seed(KacikFryzjerski.DAL.ProjectDbContext context)
+        protected override void Seed(KacikFryzjerski.DAL.DbContext context)
         {
             DbInitializer.SeedDbData(context);
             //  This method will be called after migrating to the latest version.

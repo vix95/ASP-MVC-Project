@@ -8,16 +8,16 @@ using System.Web;
 
 namespace KacikFryzjerski.DAL
 {
-    public class ProjectDbContext : System.Data.Entity.DbContext
+    public class DbContext : System.Data.Entity.DbContext
     {
-        public ProjectDbContext() : base("ProjectDbContext")
+        public DbContext() : base("DbContext")
         {
 
         }
 
-        static ProjectDbContext()
+        static DbContext()
         {
-            Database.SetInitializer<ProjectDbContext>(new DbInitializer());
+            Database.SetInitializer<DbContext>(new DbInitializer());
         }
 
         public DbSet<ProductModels> Products { get; set; }
@@ -27,7 +27,7 @@ namespace KacikFryzjerski.DAL
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //Database.SetInitializer<ProjectDbContext>(null);
+            //Database.SetInitializer<DbContext>(null);
             base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }

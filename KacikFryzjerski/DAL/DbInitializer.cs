@@ -9,9 +9,9 @@ using System.Data.Entity.Migrations;
 
 namespace KacikFryzjerski.DAL
 {
-    public class DbInitializer : MigrateDatabaseToLatestVersion<ProjectDbContext, Configuration>
+    public class DbInitializer : MigrateDatabaseToLatestVersion<DbContext, Configuration>
     {
-        public static void SeedDbData(ProjectDbContext context)
+        public static void SeedDbData(DbContext context)
         {
             var categories = new List<CategoryModels>
             {
