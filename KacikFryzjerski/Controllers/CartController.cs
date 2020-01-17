@@ -13,11 +13,11 @@ namespace KacikFryzjerski.Controllers
     {
         private CartManager cartManager;
         private ISessionManager sessionManager { get; set; }
-        private DbContext db;
+        private ProjectDbContext db;
 
         public CartController()
         {
-            db = new DbContext();
+            db = new ProjectDbContext();
             sessionManager = new SessionManager();
             cartManager = new CartManager(sessionManager, db);
         }

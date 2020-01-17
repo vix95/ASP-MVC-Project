@@ -184,7 +184,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
-    <Compile Include="DAL\DbContext.cs" />
+    <Compile Include="DAL\ProjectDbContext.cs" />
     <Compile Include="DAL\DbInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -222,6 +222,10 @@
     <Compile Include="Migrations\202001161553190_added Account.cs" />
     <Compile Include="Migrations\202001161553190_added Account.Designer.cs">
       <DependentUpon>202001161553190_added Account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001171904263_renamed database.cs" />
+    <Compile Include="Migrations\202001171904263_renamed database.Designer.cs">
+      <DependentUpon>202001171904263_renamed database.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountData.cs" />
@@ -393,6 +397,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001161553190_added Account.resx">
       <DependentUpon>202001161553190_added Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001171904263_renamed database.resx">
+      <DependentUpon>202001171904263_renamed database.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
