@@ -13,8 +13,10 @@ namespace KacikFryzjerski.Models
         public string Address { get; set; }
         public string City { get; set; }
 
+        public string Postcode { get; set; }
+
         [RegularExpression(@"(\+\d{2})*[\d\s-]+", ErrorMessage = "Błędny format numeru telefonu")]
-        public string Telefon { get; set; }
+        public string Phone { get; set; }
 
         [EmailAddress(ErrorMessage = "Błędny format adresu e-mail")]
         public string Email { get; set; }

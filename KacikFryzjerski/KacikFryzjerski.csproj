@@ -223,6 +223,18 @@
     <Compile Include="Migrations\202001161553190_added Account.Designer.cs">
       <DependentUpon>202001161553190_added Account.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001172035213_added fields.cs" />
+    <Compile Include="Migrations\202001172035213_added fields.Designer.cs">
+      <DependentUpon>202001172035213_added fields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001172037221_changed order status.cs" />
+    <Compile Include="Migrations\202001172037221_changed order status.Designer.cs">
+      <DependentUpon>202001172037221_changed order status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001172042555_check something.cs" />
+    <Compile Include="Migrations\202001172042555_check something.Designer.cs">
+      <DependentUpon>202001172042555_check something.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountData.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -358,6 +370,8 @@
     <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\Pay.cshtml" />
+    <Content Include="Views\Cart\OrderConfirmation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -393,6 +407,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001161553190_added Account.resx">
       <DependentUpon>202001161553190_added Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001172035213_added fields.resx">
+      <DependentUpon>202001172035213_added fields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001172037221_changed order status.resx">
+      <DependentUpon>202001172037221_changed order status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001172042555_check something.resx">
+      <DependentUpon>202001172042555_check something.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
