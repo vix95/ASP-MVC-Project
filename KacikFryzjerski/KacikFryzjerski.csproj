@@ -235,6 +235,10 @@
     <Compile Include="Migrations\202001180025244_added Accounts.Designer.cs">
       <DependentUpon>202001180025244_added Accounts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001180756246_update Order Models.cs" />
+    <Compile Include="Migrations\202001180756246_update Order Models.Designer.cs">
+      <DependentUpon>202001180756246_update Order Models.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountData.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -417,6 +421,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001180025244_added Accounts.resx">
       <DependentUpon>202001180025244_added Accounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001180756246_update Order Models.resx">
+      <DependentUpon>202001180756246_update Order Models.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

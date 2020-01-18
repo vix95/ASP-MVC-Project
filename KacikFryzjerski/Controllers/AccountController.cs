@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using KacikFryzjerski.Models;
+using KacikFryzjerski.DAL;
 
 namespace KacikFryzjerski.Controllers
 {
@@ -153,6 +154,16 @@ namespace KacikFryzjerski.Controllers
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
+
+                // Own Account Table
+                DbContext db = new DbContext();
+                AccountModels newAccount = new AccountModels();
+                newAccount.Account_email = model.Email;
+                newAccount.AccountData = new AccountData();
+                newAccount.AccountData.Email = model.Email;
+                db.Users.Add(newAccount);
+                db.SaveChanges();
+
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);

@@ -32,13 +32,9 @@ namespace KacikFryzjerski.Models
         [StringLength(100)]
         public string Order_address { get; set; }
         
-        [Required(ErrorMessage = "Wprowadź numer mieszkania")]
+        [Required(ErrorMessage = "Wprowadź telefon")]
         [StringLength(20)]
         [RegularExpression(@"(\+\d{2})*[\d\s-]+", ErrorMessage = "Błędny format numeru telefonu.")]
-        public string Order_address_number { get; set; }
-        
-        [Required(ErrorMessage = "Wprowadź telefon")]
-        [StringLength(100)]
         public string Order_phone { get; set; }
         
         [Required(ErrorMessage = "Wprowadź adres email")]

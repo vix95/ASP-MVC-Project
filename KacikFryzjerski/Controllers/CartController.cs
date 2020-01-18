@@ -77,7 +77,7 @@ namespace KacikFryzjerski.Controllers
                 var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
                 var userOwnTable = db.Users.Where(x => x.Account_email == user.Email).SingleOrDefault();
 
-                /*var order = new OrderModels
+                var order = new OrderModels
                 {
                     Order_name = userOwnTable.AccountData.Name,
                     Order_surname = userOwnTable.AccountData.Surname,
@@ -86,14 +86,14 @@ namespace KacikFryzjerski.Controllers
                     Order_postcode = userOwnTable.AccountData.Postcode,
                     Order_email = userOwnTable.AccountData.Email,
                     Order_phone = userOwnTable.AccountData.Phone
-                };*/
+                };
                 return View();
             }
             else
                 return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Pay", "Cart") });
         }
 
-        /*[HttpPost]
+        [HttpPost]
         public async Task<ActionResult> Pay(OrderModels orderDetails)
         {
             if (ModelState.IsValid)
@@ -101,7 +101,13 @@ namespace KacikFryzjerski.Controllers
                 var userId = User.Identity.GetUserId();
                 var newOrder = cartManager.CreateOrder(orderDetails, userId);
                 var user = await UserManager.FindByIdAsync(userId);
-                TryUpdateModel(user.AccountData);
+                var userOwnTable = db.Users.Where(x => x.Account_email == user.Email).SingleOrDefault();
+                userOwnTable.AccountData.City = orderDetails.Order_city;
+                if (TryUpdateModel(userOwnTable))
+                {
+                    db.SaveChanges();
+                }
+
                 await UserManager.UpdateAsync(user);
 
                 cartManager.EmptyCart();
@@ -112,7 +118,7 @@ namespace KacikFryzjerski.Controllers
             }
             else
                 return View(orderDetails);
-        }*/
+        }
 
         public ActionResult OrderConfirmation()
         {
