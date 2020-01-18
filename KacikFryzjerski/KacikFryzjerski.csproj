@@ -239,6 +239,22 @@
     <Compile Include="Migrations\202001180756246_update Order Models.Designer.cs">
       <DependentUpon>202001180756246_update Order Models.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001181634103_changed type of id in AccountModels.cs" />
+    <Compile Include="Migrations\202001181634103_changed type of id in AccountModels.Designer.cs">
+      <DependentUpon>202001181634103_changed type of id in AccountModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001181708233_modified OrderPositionModels.cs" />
+    <Compile Include="Migrations\202001181708233_modified OrderPositionModels.Designer.cs">
+      <DependentUpon>202001181708233_modified OrderPositionModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001181715056_modified OrderPositionModels as list.cs" />
+    <Compile Include="Migrations\202001181715056_modified OrderPositionModels as list.Designer.cs">
+      <DependentUpon>202001181715056_modified OrderPositionModels as list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001181753404_back to OrderPositionModels.cs" />
+    <Compile Include="Migrations\202001181753404_back to OrderPositionModels.Designer.cs">
+      <DependentUpon>202001181753404_back to OrderPositionModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountData.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -377,6 +393,8 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\Pay.cshtml" />
     <Content Include="Views\Cart\OrderConfirmation.cshtml" />
+    <Content Include="Views\Manage\OrdersList.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Enum.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -424,6 +442,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001180756246_update Order Models.resx">
       <DependentUpon>202001180756246_update Order Models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001181634103_changed type of id in AccountModels.resx">
+      <DependentUpon>202001181634103_changed type of id in AccountModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001181708233_modified OrderPositionModels.resx">
+      <DependentUpon>202001181708233_modified OrderPositionModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001181715056_modified OrderPositionModels as list.resx">
+      <DependentUpon>202001181715056_modified OrderPositionModels as list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001181753404_back to OrderPositionModels.resx">
+      <DependentUpon>202001181753404_back to OrderPositionModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

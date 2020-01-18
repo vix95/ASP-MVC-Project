@@ -7,6 +7,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using KacikFryzjerski.Models;
+using System.Collections.Generic;
+using System.Data.Entity;
 
 namespace KacikFryzjerski.Controllers
 {
@@ -15,9 +17,16 @@ namespace KacikFryzjerski.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private KacikFryzjerski.DAL.DbContext db;
 
         public ManageController()
         {
+            this.db = new KacikFryzjerski.DAL.DbContext();
+        }
+
+        public ManageController(KacikFryzjerski.DAL.DbContext context)
+        {
+            this.db = context;
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -331,6 +340,38 @@ namespace KacikFryzjerski.Controllers
             }
 
             base.Dispose(disposing);
+        }
+
+        public ActionResult OrdersList()
+        {
+            bool is_admin = User.IsInRole("Admin"); // role
+            ViewBag.UserIsAdmin = is_admin;
+            IEnumerable<OrderModels> orderList;
+
+            // show all for administrator
+            if (is_admin)
+            {
+                orderList = db.Orders.Include("OrderPosition").OrderByDescending(x => x.Order_ordered_at).ToList();
+            }
+            else
+            {
+                var user_id = User.Identity.GetUserId();
+                orderList = db.Orders.Where(x => x.Order_User_id == user_id).Include("OrderPosition")
+                    .OrderByDescending(x => x.Order_ordered_at).ToList();
+            }
+
+            return View(orderList);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public OrderStatus ChangeOrderStatus(OrderModels order)
+        {
+            OrderModels order_to_modification = db.Orders.Find(order.Id);
+            order_to_modification.Order_order_status = order.Order_order_status;
+            db.SaveChanges();
+
+            return order.Order_order_status;
         }
 
 #region Pomocnicy

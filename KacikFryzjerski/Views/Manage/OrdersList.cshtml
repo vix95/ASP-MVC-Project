@@ -1,0 +1,113 @@
+﻿@model IEnumerable<KacikFryzjerski.Models.OrderModels>
+
+@{
+    ViewBag.Title = "OrdersList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <hr />
+    <h2 class="manage-header">Twoje zamówienia</h2>
+
+    <div>
+        @if (Model.Any())
+        {
+            <table id="orders-table">
+
+                @foreach (var order in Model)
+                {
+                    <tr @if (order.Order_order_status == KacikFryzjerski.Models.OrderStatus.Nowe) { <text> class="new-order" </text> }>
+                        <td>
+                            <strong>Nr zamówienia: </strong>@order.Id
+                        </td>
+                        <td>
+                            <strong>Data: </strong>
+                            @order.Order_ordered_at.ToString("dd-MM-yyyy")
+                        </td>
+                        <td>
+                            <strong>Stan: </strong><br />
+
+                            @if (ViewBag.UserIsAdmin)
+                            {
+                                using (Html.BeginForm("ChangeOrderStatus", "Manage"))
+                                {
+                                    @Html.HiddenFor(o => order.Id)
+                                    @Html.EnumDropDownListFor(o => order.Order_order_status, new { @class = "order-status-change" })
+                                }
+                            }
+                            else
+                            {
+                                @Html.DisplayFor(o => order.Order_order_status)
+                            }
+                        </td>
+                        <td>
+                            <strong>Dane wysyłkowe:</strong><br />
+                            @order.Order_name @order.Order_surname<br />
+                            @order.Order_address<br />
+                            @order.Order_postcode @order.Order_city<br />
+                        </td>
+                        <td>
+                            <strong>Łączny koszt:</strong> @order.Order_total_order_price zł
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <section>
+                                <ul class="TrzyKolumnyList duzaListaKursy-bottom">
+
+                                    @foreach (var orderPositions in order.OrderPosition)
+                                    {
+                                        <li>
+                                            <article>
+                                                <a class="kursSzczegolyLink" href="@Url.Action("Details", "Product", new { id = orderPositions.Id })">
+                                                    <img class="kurs" src="@Url.Content("~/Content/Kursy/" + orderPositions.OrderPosition_Product.Product_image_path)" />
+                                                    <h1>
+                                                        @orderPositions.Product.Product_name<br />
+                                                        <strong>sztuk: @orderPositions.OrderPosition_quantity, łącznie: @(orderPositions.OrderPosition_quantity * @orderPositions.OrderPosition_price)  zł</strong>
+                                                    </h1>
+                                                </a>
+                                            </article>
+                                        </li>
+                                    }
+                                </ul>
+                            </section>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6"></td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <div style="text-align: center; margin-top: 50px; margin-bottom: 50px;">
+                Brak zamówień.
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/Scripts/jquery-2.2.1.js"></script>
+
+    <script>
+    $(".order-status-change").on('change', function (e) {
+        //e.preventDefault();
+        var f = $(this.form);
+        var tr = f.closest("tr");
+        var action = f.attr("action");
+        var serializedForm = f.serialize();
+        $.post(action, serializedForm).done(function (data) {
+            if (data == '@KacikFryzjerski.Models.OrderStatus.Nowe.ToString()') {
+                tr.addClass("new-order")
+            }
+            else {
+                tr.removeClass("new-order");
+            }
+          });
+    });
+    </script>
+}
+

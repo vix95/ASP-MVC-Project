@@ -71,22 +71,39 @@ namespace KacikFryzjerski.Controllers
         public async Task<ActionResult> Pay()
         {
             var name = User.Identity.Name;
+            var order = new OrderModels();
 
             if (Request.IsAuthenticated)
             {
                 var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
                 var userOwnTable = db.Users.Where(x => x.Account_email == user.Email).SingleOrDefault();
 
-                var order = new OrderModels
+                if (userOwnTable == null)
                 {
-                    Order_name = userOwnTable.AccountData.Name,
-                    Order_surname = userOwnTable.AccountData.Surname,
-                    Order_address = userOwnTable.AccountData.Address,
-                    Order_city = userOwnTable.AccountData.City,
-                    Order_postcode = userOwnTable.AccountData.Postcode,
-                    Order_email = userOwnTable.AccountData.Email,
-                    Order_phone = userOwnTable.AccountData.Phone
-                };
+                    order = new OrderModels
+                    {
+                        Order_name = "",
+                        Order_surname = "",
+                        Order_address = "",
+                        Order_city = "",
+                        Order_postcode = "",
+                        Order_email = "",
+                        Order_phone = ""
+                    };
+                }
+                else
+                {
+                    order = new OrderModels
+                    {
+                        Order_name = userOwnTable.AccountData.Name,
+                        Order_surname = userOwnTable.AccountData.Surname,
+                        Order_address = userOwnTable.AccountData.Address,
+                        Order_city = userOwnTable.AccountData.City,
+                        Order_postcode = userOwnTable.AccountData.Postcode,
+                        Order_email = userOwnTable.AccountData.Email,
+                        Order_phone = userOwnTable.AccountData.Phone
+                    };
+                }
                 return View();
             }
             else
