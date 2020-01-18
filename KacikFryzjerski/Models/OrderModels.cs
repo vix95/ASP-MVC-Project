@@ -10,7 +10,7 @@ namespace KacikFryzjerski.Models
     {
         public int Id { get; set; }
 
-        public string UserId { get; set; }
+        public string Order_User_id { get; set; }
 
         [Required(ErrorMessage = "Wprowadź imię")]
         [StringLength(100)]

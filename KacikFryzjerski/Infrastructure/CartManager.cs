@@ -101,7 +101,7 @@ namespace KacikFryzjerski.Infrastructure
         {
             var cart = GetCart();
             newOrder.Order_ordered_at = DateTime.Now;
-            newOrder.UserId = user_id;
+            newOrder.Order_User_id = user_id;
 
             db.Orders.Add(newOrder);
 

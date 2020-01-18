@@ -24,6 +24,7 @@ namespace KacikFryzjerski.DAL
         public DbSet<CategoryModels> Categories { get; set; }
         public DbSet<OrderModels> Orders { get; set; }
         public DbSet<OrderPositionModels> OrderProducts { get; set; }
+        public DbSet<AccountModels> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

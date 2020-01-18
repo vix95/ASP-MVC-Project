@@ -75,15 +75,16 @@ namespace KacikFryzjerski.Controllers
             if (Request.IsAuthenticated)
             {
                 var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                var userOwnTable = db.Users.Where(x => x.User_email == user.Email).SingleOrDefault();
                 var order = new OrderModels
                 {
-                    Order_name = user.AccountData.Name,
-                    Order_surname = user.AccountData.Surname,
-                    Order_address = user.AccountData.Address,
-                    Order_city = user.AccountData.City,
-                    Order_postcode = user.AccountData.Postcode,
-                    Order_email = user.AccountData.Email,
-                    Order_phone = user.AccountData.Phone
+                    Order_name = userOwnTable.User_AccountData.Name,
+                    Order_surname = userOwnTable.User_AccountData.Surname,
+                    Order_address = userOwnTable.User_AccountData.Address,
+                    Order_city = userOwnTable.User_AccountData.City,
+                    Order_postcode = userOwnTable.User_AccountData.Postcode,
+                    Order_email = userOwnTable.User_AccountData.Email,
+                    Order_phone = userOwnTable.User_AccountData.Phone
                 };
                 return View(order);
             }

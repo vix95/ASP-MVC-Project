@@ -231,9 +231,9 @@
     <Compile Include="Migrations\202001172037221_changed order status.Designer.cs">
       <DependentUpon>202001172037221_changed order status.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001172042555_check something.cs" />
-    <Compile Include="Migrations\202001172042555_check something.Designer.cs">
-      <DependentUpon>202001172042555_check something.cs</DependentUpon>
+    <Compile Include="Migrations\202001180025244_added Accounts.cs" />
+    <Compile Include="Migrations\202001180025244_added Accounts.Designer.cs">
+      <DependentUpon>202001180025244_added Accounts.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountData.cs" />
@@ -245,6 +245,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OrderPositionModels.cs" />
     <Compile Include="Models\OrderModels.cs" />
+    <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\CartDeletingViewModel.cs" />
@@ -414,8 +415,8 @@
     <EmbeddedResource Include="Migrations\202001172037221_changed order status.resx">
       <DependentUpon>202001172037221_changed order status.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001172042555_check something.resx">
-      <DependentUpon>202001172042555_check something.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001180025244_added Accounts.resx">
+      <DependentUpon>202001180025244_added Accounts.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
