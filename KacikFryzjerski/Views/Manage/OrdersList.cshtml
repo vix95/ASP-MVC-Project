@@ -29,8 +29,8 @@
                                     </div>
                                 </td>
                                 <td style="text-align:right; vertical-align: top;">
-                                    <div>
-                                        <strong>Stan: </strong>
+                                    <div style="display: inline-flex;">
+                                        <strong style="padding: 5px;">Stan: </strong>
                                         <span>
                                             @if (ViewBag.UserIsAdmin)
                                             {
@@ -54,16 +54,19 @@
 
                     @foreach (var orderPositions in order.OrderPosition)
                     {
-                        <div class="ordered-product-row">
-                            <table>
-                                <tr>
-                                    <td><img class="product" src="@Url.Content("~/Content/images/store/" + orderPositions.OrderPosition_ProductElement.Product_image_path)" /></td>
-                                    <td><a href="@Url.Action("Details", "Product", new { id = orderPositions.Id })">@orderPositions.OrderPosition_ProductElement.Product_name</a></td>
-                                    <td><strong>sztuk: </strong>@orderPositions.OrderPosition_quantity</td>
-                                    <td><strong>suma: </strong>@(orderPositions.OrderPosition_quantity * @orderPositions.OrderPosition_price)  zł</td>
-                                </tr>
-                            </table>
-                        </div>
+                        if (orderPositions.OrderPosition_ProductElement != null)
+                        {
+                            <div class="ordered-product-row">
+                                <table>
+                                    <tr>
+                                        <td class="image"><img class="product" src="@Url.Content("~/Content/images/store/" + orderPositions.OrderPosition_ProductElement.Product_image_path)" /></td>
+                                        <td><a href="@Url.Action("Details", "Product", new { id = orderPositions.Id })">@orderPositions.OrderPosition_ProductElement.Product_name</a></td>
+                                        <td><strong>sztuk: </strong>@orderPositions.OrderPosition_quantity</td>
+                                        <td><strong>suma: </strong>@(orderPositions.OrderPosition_quantity * @orderPositions.OrderPosition_price)  zł</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        }
                     }
                 </div>
             }
@@ -74,3 +77,26 @@
         }
     </div>
 </div>
+
+@section Scripts
+{
+    <script src="~/Scripts/jquery-2.2.1.js"></script>
+
+    <script>
+    $(".order-status-change").on('change', function (e) {
+        //e.preventDefault();
+        var f = $(this.form);
+        var action = f.attr("action");
+        var serializedForm = f.serialize();
+        var divElem = f.closest(".details");
+        $.post(action, serializedForm).done(function (data) {
+            if (data == '@KacikFryzjerski.Models.OrderStatus.Nowe.ToString()') {
+                divElem.addClass("new-order")
+            }
+            else {
+                divElem.removeClass("new-order");
+            }
+        });
+    });
+    </script>
+}

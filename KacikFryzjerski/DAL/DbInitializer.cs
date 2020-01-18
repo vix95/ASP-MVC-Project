@@ -27,14 +27,15 @@ namespace KacikFryzjerski.DAL
 
             var products = new List<ProductModels>
             {
-                new ProductModels() { 
+                new ProductModels() {
                     Id = 1,
-                    Product_category_id = 1, 
+                    Product_category_id = 1,
                     Product_name = "Trwały lakier",
                     Product_description = "Lakier zapewniający trwałą fryzurę na kilka godzin",
                     Product_price = 12.99,
                     Product_image_path = "trwaly_lakier.jpg",
-                    Product_created_at = DateTime.Now},
+                    Product_created_at = DateTime.Now,
+                    Product_is_bestseller = true},
 
                 new ProductModels() {
                     Id = 2,
@@ -51,8 +52,19 @@ namespace KacikFryzjerski.DAL
                     Product_name = "Profesjonalne nożyczki",
                     Product_description = "Profesjonalne nożyczki zapewnią Tobie profesjonalne cięcie.",
                     Product_price = 59.89,
-                    Product_image_path = "trwaly_lakier.jpg",
-                    Product_created_at = DateTime.Now},
+                    Product_image_path = "nozyczki.jpg",
+                    Product_created_at = DateTime.Now,
+                    Product_is_bestseller = true},
+
+                new ProductModels() {
+                    Id = 4,
+                    Product_category_id = 3,
+                    Product_name = "Grzebień profesjonalny",
+                    Product_description = "Do rozczesania nawet najbardziej trudnych włosów.",
+                    Product_price = 12.89,
+                    Product_image_path = "grzebien.jpg",
+                    Product_created_at = DateTime.Now,
+                    Product_is_bestseller = true},
             };
 
             products.ForEach(k => context.Products.AddOrUpdate(k));

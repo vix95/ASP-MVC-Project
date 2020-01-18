@@ -67,7 +67,7 @@
                     <td style="text-align: left">
                         @if (ViewBag.EditMode)
                         {
-                            <a href="@Url.Action("DeleteProduct", "Manage", new { kursId = Model.Product.Id })" class="btn btn-warning">
+                            <a href="@Url.Action("DeleteProduct", "Manage", new { product_id = Model.Product.Id })" class="btn btn-danger">
                                 Usuń
                             </a>
                         }

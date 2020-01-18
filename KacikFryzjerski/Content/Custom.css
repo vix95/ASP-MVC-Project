@@ -336,3 +336,12 @@ table {
     border-collapse: separate;
     border-spacing: 10px;
 }
+
+td.image {
+    text-align: center;
+}
+
+.order-status-change {
+    display: inline-block;
+    width: 150px;
+}
