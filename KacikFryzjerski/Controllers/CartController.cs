@@ -68,29 +68,30 @@ namespace KacikFryzjerski.Controllers
             return Json(result);
         }
 
-        /*public async Task<ActionResult> Pay()
+        public async Task<ActionResult> Pay()
         {
             var name = User.Identity.Name;
 
             if (Request.IsAuthenticated)
             {
                 var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
-                var userOwnTable = db.Users.Where(x => x.User_email == user.Email).SingleOrDefault();
-                var order = new OrderModels
+                var userOwnTable = db.Users.Where(x => x.Account_email == user.Email).SingleOrDefault();
+
+                /*var order = new OrderModels
                 {
-                    Order_name = userOwnTable.User_AccountData.Name,
-                    Order_surname = userOwnTable.User_AccountData.Surname,
-                    Order_address = userOwnTable.User_AccountData.Address,
-                    Order_city = userOwnTable.User_AccountData.City,
-                    Order_postcode = userOwnTable.User_AccountData.Postcode,
-                    Order_email = userOwnTable.User_AccountData.Email,
-                    Order_phone = userOwnTable.User_AccountData.Phone
-                };
-                return View(order);
+                    Order_name = userOwnTable.AccountData.Name,
+                    Order_surname = userOwnTable.AccountData.Surname,
+                    Order_address = userOwnTable.AccountData.Address,
+                    Order_city = userOwnTable.AccountData.City,
+                    Order_postcode = userOwnTable.AccountData.Postcode,
+                    Order_email = userOwnTable.AccountData.Email,
+                    Order_phone = userOwnTable.AccountData.Phone
+                };*/
+                return View();
             }
             else
                 return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Pay", "Cart") });
-        }*/
+        }
 
         /*[HttpPost]
         public async Task<ActionResult> Pay(OrderModels orderDetails)
