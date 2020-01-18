@@ -13,24 +13,27 @@
         <td id="categories">
             @Html.Action("CategoryMenu", "Store")
         </td>
-        <td id="cart-view">
-            <div>
+        <td>
+            <div id="cart-view">
                 <table id="cart-table">
-                    <thead id="cart-head">
-                        <tr>
-                            <th></th>
-                            <th>Produkt</th>
-                            <th>Ilość</th>
-                            <th>Cena</th>
-                            <th></th>
-                        </tr>
-                    </thead>
+                    @if (Model.cartPositions.Count > 0)
+                    {
+                        <thead id="cart-head">
+                            <tr>
+                                <th></th>
+                                <th>Produkt</th>
+                                <th>Ilość</th>
+                                <th>Cena</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                    }
                     <tbody>
                         @foreach (var cartPosition in Model.cartPositions)
                         {
                             <tr id="cart-row-@cartPosition.Product.Id" class="product-row">
                                 <td id="product-image-cart"><img src="@Url.StoreItemImagePath(cartPosition.Product.Product_image_path)" /></td>
-                                <td id="product-name-cart">@cartPosition.Product.Product_name</td>
+                                <td id="product-name-cart"><a href="@Url.Action("Detail", "Store", new { product_id = cartPosition.Product.Id })">@cartPosition.Product.Product_name</a></td>
                                 <td id="produdct-quantity-cart"><span id="cart-quantity-@cartPosition.Product.Id">@cartPosition.quantity</span></td>
                                 <td id="produdct-price-cart">@string.Format("{0:0.##}", cartPosition.price) <text>PLN</text></td>
                                 <td><a class="product-delete btn btn-danger" data-id="@cartPosition.Product.Id" href="#">Usuń</a></td>
@@ -48,7 +51,7 @@
                 </div>
 
                 <div class="cart-buttons">
-                    <a class="btn btn-primary" href="link">Kontynuuj zakupy</a>
+                    <a class="btn btn-primary" href="@Url.Action("CategoryList", "Store")">Kontynuuj zakupy</a>
 
                     @if (Model.TotalPrice > 0)
                     {

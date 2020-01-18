@@ -255,6 +255,14 @@
     <Compile Include="Migrations\202001181753404_back to OrderPositionModels.Designer.cs">
       <DependentUpon>202001181753404_back to OrderPositionModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001181800443_modifiend one more.cs" />
+    <Compile Include="Migrations\202001181800443_modifiend one more.Designer.cs">
+      <DependentUpon>202001181800443_modifiend one more.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001181810006_modifiend one more more.cs" />
+    <Compile Include="Migrations\202001181810006_modifiend one more more.Designer.cs">
+      <DependentUpon>202001181810006_modifiend one more more.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountData.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -279,6 +287,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Custom.css" />
     <Content Include="Content\images\store\trwaly_lakier.jpg" />
+    <Content Include="Content\images\top-image.jpg" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -454,6 +463,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001181753404_back to OrderPositionModels.resx">
       <DependentUpon>202001181753404_back to OrderPositionModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001181800443_modifiend one more.resx">
+      <DependentUpon>202001181800443_modifiend one more.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001181810006_modifiend one more more.resx">
+      <DependentUpon>202001181810006_modifiend one more more.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

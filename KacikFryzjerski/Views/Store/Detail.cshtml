@@ -24,7 +24,7 @@
                             <div id="product-name-details">@Model.Product_name</div>
                             <div id="product-description-details">@Model.Product_description</div>
                             <div id="produdct-price-details">@string.Format("{0:0.##}", Model.Product_price) <span>PLN</span></div>
-                            <a class="btn btn-primary-details" href="@Url.Action("AddToCart", "Cart", new { id = Model.Id })">Dodaj do koszyka</a>
+                            <a class="btn btn-primary" href="@Url.Action("AddToCart", "Cart", new { product_id = Model.Id })">Dodaj do koszyka</a>
                         </td>
                     </tr>
                 </table>

@@ -242,3 +242,5 @@ C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjer
 C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.modifiedOrderPositionModels.resources
 C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.modifiedOrderPositionModelsaslist.resources
 C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.backtoOrderPositionModels.resources
+C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.modifiendonemore.resources
+C:\Users\Vix\source\repos\KacikFryzjerski\KacikFryzjerski\obj\Debug\KacikFryzjerski.Migrations.modifiendonemoremore.resources

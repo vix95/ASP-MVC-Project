@@ -358,6 +358,14 @@ namespace KacikFryzjerski.Controllers
                 var user_id = User.Identity.GetUserId();
                 orderList = db.Orders.Where(x => x.Order_User_id == user_id).Include("OrderPosition")
                     .OrderByDescending(x => x.Order_ordered_at).ToList();
+
+                foreach (OrderModels order in orderList)
+                {
+                    foreach (OrderPositionModels orderPosition in order.OrderPosition)
+                    {
+                        orderPosition.OrderPosition_ProductElement = db.Products.Find(orderPosition.OrderPosition_product_id);
+                    }
+                }
             }
 
             return View(orderList);
