@@ -28,6 +28,10 @@
                     <!--<li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>-->
                     <li>@Html.ActionLink("Sklep", "CategoryList", "Store", new { category_id = "All" }, null)</li>
                     <li>@Html.ActionLink("Lista zamówień", "OrdersList", "Manage")</li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Dodaj produkt", "AddProduct", "Manage")</li>
+                    }
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a id="cart-element" href="@Url.Action("Index", "Cart")">Koszyk (<span id="cart-elements-quantity">@Html.Action("GetCartElemenetsQuantity", "Cart")</span>)</a></li>

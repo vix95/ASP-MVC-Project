@@ -74,27 +74,3 @@
         }
     </div>
 </div>
-
-@section Scripts
-{
-    <script src="~/Scripts/jquery-2.2.1.js"></script>
-
-    <script>
-    $(".order-status-change").on('change', function (e) {
-        //e.preventDefault();
-        var f = $(this.form);
-        var tr = f.closest("tr");
-        var action = f.attr("action");
-        var serializedForm = f.serialize();
-        $.post(action, serializedForm).done(function (data) {
-            if (data == '@KacikFryzjerski.Models.OrderStatus.Nowe.ToString()') {
-                tr.addClass("new-order")
-            }
-            else {
-                tr.removeClass("new-order");
-            }
-          });
-    });
-    </script>
-}
-

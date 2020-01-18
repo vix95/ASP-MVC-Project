@@ -20,6 +20,7 @@ namespace KacikFryzjerski.Models
         [StringLength(200)]
         public string Product_image_path { get; set; }
         public DateTime Product_created_at { get; set; }
+        public bool Product_is_bestseller { get; set; }
 
         public virtual CategoryModels Category { get; set; }
     }

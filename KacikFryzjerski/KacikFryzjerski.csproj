@@ -263,6 +263,10 @@
     <Compile Include="Migrations\202001181810006_modifiend one more more.Designer.cs">
       <DependentUpon>202001181810006_modifiend one more more.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001182102287_modified Product model.cs" />
+    <Compile Include="Migrations\202001182102287_modified Product model.Designer.cs">
+      <DependentUpon>202001182102287_modified Product model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountData.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -278,6 +282,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\CartDeletingViewModel.cs" />
     <Compile Include="ViewModel\CartViewModel.cs" />
+    <Compile Include="ViewModel\EditProductViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -404,6 +409,7 @@
     <Content Include="Views\Cart\OrderConfirmation.cshtml" />
     <Content Include="Views\Manage\OrdersList.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Enum.cshtml" />
+    <Content Include="Views\Manage\AddProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -469,6 +475,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001181810006_modifiend one more more.resx">
       <DependentUpon>202001181810006_modifiend one more more.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001182102287_modified Product model.resx">
+      <DependentUpon>202001182102287_modified Product model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

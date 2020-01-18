@@ -1,0 +1,84 @@
+﻿@model KacikFryzjerski.ViewModel.EditProductViewModel
+
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="manageHeader">Edycja produktu</h2>
+<div>
+    @if (Model.Confirmation.HasValue && Model.Confirmation.Value)
+    {
+        <div style="text-align: center; margin: 50px;">
+            Pomyślnie wprowadzono zmiany!
+        </div>
+    }
+
+    @using (@Html.BeginForm("AddProduct", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="error-summary-centered">
+            @Html.ValidationSummary()
+        </div>
+        @Html.HiddenFor(o => o.Product.Id)
+        @Html.HiddenFor(o => o.Product.Product_created_at)
+        @Html.HiddenFor(o => o.Product.Product_image_path)
+
+        <div style="text-align: center;">
+            <table id="albumedit-address-table">
+                <tr>
+                    <td>@Html.LabelFor(o => o.Product.Product_name, "Nazwa produktu:")</td>
+                    <td>@Html.TextBoxFor(o => o.Product.Product_name)</td>
+                    <td>@Html.ValidationMessageFor(o => o.Product.Product_name)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(o => o.Product.Product_description, "Opis:")</td>
+                    <td>@Html.TextBoxFor(o => o.Product.Product_description)</td>
+                    <td>@Html.ValidationMessageFor(o => o.Product.Product_description)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(o => o.Categories, "Kategoria:")</td>
+                    <td>@Html.DropDownListFor(m => m.Product.Product_category_id, new SelectList(Model.Categories, "Id", "Category_name", Model.Categories.First().Id))</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(o => o.Product.Product_price, "Cena:")</td>
+                    <td>@Html.TextBoxFor(o => o.Product.Product_price)</td>
+                    <td>@Html.ValidationMessageFor(o => o.Product.Product_price)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(o => o.Product.Product_is_bestseller, "Bestseller:")</td>
+                    <td>@Html.CheckBoxFor(o => o.Product.Product_is_bestseller)</td>
+                    <td></td>
+                </tr>
+                @if (ViewBag.EditMode == null || !ViewBag.EditMode)
+                {
+                    <tr>
+                        <td colspan="3">
+                            <div class="upload">
+                                <input type="file" name="file" />
+                            </div>
+                        </td>
+                    </tr>
+                }
+                <tr>
+
+                    <td style="text-align: left">
+                        @if (ViewBag.EditMode)
+                        {
+                            <a href="@Url.Action("DeleteProduct", "Manage", new { kursId = Model.Product.Id })" class="btn btn-warning">
+                                Usuń
+                            </a>
+                        }
+                    </td>
+
+                    <td style="text-align: right;">
+                        <input type="submit" value="Zapisz" class="btn btn-success" style="height: 40px; margin-right: 0px; margin-top: 30px; font-weight: bold;" />
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    }
+</div>

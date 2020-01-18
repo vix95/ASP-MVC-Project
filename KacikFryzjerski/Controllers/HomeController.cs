@@ -24,7 +24,7 @@ namespace KacikFryzjerski.Controllers
             }
             else
             {
-                bestsellers = db.Products.OrderBy(x => Guid.NewGuid()).Take(6).ToList();
+                bestsellers = db.Products.Where(x => x.Product_is_bestseller == true).OrderBy(x => Guid.NewGuid()).Take(3).ToList();
                 cache.Set(Consts.BestsellersCacheKey, bestsellers, 60);
             }
 

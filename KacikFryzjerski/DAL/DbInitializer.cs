@@ -6,6 +6,8 @@ using System.Data.Entity;
 using KacikFryzjerski.Models;
 using KacikFryzjerski.Migrations;
 using System.Data.Entity.Migrations;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace KacikFryzjerski.DAL
 {
@@ -55,6 +57,38 @@ namespace KacikFryzjerski.DAL
 
             products.ForEach(k => context.Products.AddOrUpdate(k));
             context.SaveChanges();
+        }
+
+        public static void SeedUsers(ApplicationDbContext db)
+        {
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
+
+            const string name = "admin@itvix.pl";
+            const string password = "Admin1!";
+            const string roleName = "Admin";
+
+            var user = userManager.FindByName(name);
+            if (user == null)
+            {
+                user = new ApplicationUser { UserName = name, Email = name };
+                var result = userManager.Create(user, password);
+            }
+
+            // create Admin role if doesn't exists
+            var role = roleManager.FindByName(roleName);
+            if (role == null)
+            {
+                role = new IdentityRole(roleName);
+                var roleresult = roleManager.Create(role);
+            }
+
+            // add user to Admin role if doensn't exists
+            var rolesForUser = userManager.GetRoles(user.Id);
+            if (!rolesForUser.Contains(role.Name))
+            {
+                var result = userManager.AddToRole(user.Id, role.Name);
+            }
         }
     }
 }

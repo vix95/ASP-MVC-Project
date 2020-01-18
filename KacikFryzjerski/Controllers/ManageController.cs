@@ -9,6 +9,9 @@ using Microsoft.Owin.Security;
 using KacikFryzjerski.Models;
 using System.Collections.Generic;
 using System.Data.Entity;
+using KacikFryzjerski.ViewModel;
+using System.IO;
+using KacikFryzjerski.Infrastructure;
 
 namespace KacikFryzjerski.Controllers
 {
@@ -352,6 +355,13 @@ namespace KacikFryzjerski.Controllers
             if (is_admin)
             {
                 orderList = db.Orders.Include("OrderPosition").OrderByDescending(x => x.Order_ordered_at).ToList();
+                foreach (OrderModels order in orderList)
+                {
+                    foreach (OrderPositionModels orderPosition in order.OrderPosition)
+                    {
+                        orderPosition.OrderPosition_ProductElement = db.Products.Find(orderPosition.OrderPosition_product_id);
+                    }
+                }
             }
             else
             {
@@ -382,7 +392,90 @@ namespace KacikFryzjerski.Controllers
             return order.Order_order_status;
         }
 
-#region Pomocnicy
+        [Authorize(Roles = "Admin")]
+        public ActionResult AddProduct(int? product_id, bool? confirmation)
+        {
+            ProductModels product;
+            if (product_id.HasValue)
+            {
+                ViewBag.EditMode = true;
+                product = db.Products.Find(product_id);
+            }
+            else
+            {
+                ViewBag.EditMode = false;
+                product = new ProductModels();
+            }
+
+            var result = new EditProductViewModel();
+            result.Categories = db.Categories.ToList();
+            result.Product = product;
+            result.Confirmation = confirmation;
+
+            return View(result);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public ActionResult AddProduct(EditProductViewModel model, HttpPostedFileBase file)
+        {
+            ViewBag.EditMode = false;
+            if (model.Product.Id > 0)
+            {
+                db.Entry(model.Product).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("AddProduct", new { confirmation = true });
+            }
+            else
+            {
+                // if files has not been uploaded
+                if (file != null && file.ContentLength > 0)
+                {
+                    if (ModelState.IsValid)
+                    {
+                        var fileExt = Path.GetExtension(file.FileName);
+                        var filename = Guid.NewGuid() + fileExt;
+
+                        var path = Path.Combine(Server.MapPath(AppConfig.StoreImagesCatalog), filename);
+                        file.SaveAs(path);
+
+                        model.Product.Product_image_path = filename;
+                        model.Product.Product_created_at = DateTime.Now;
+
+                        db.Entry(model.Product).State = EntityState.Added;
+                        db.SaveChanges();
+
+                        return RedirectToAction("AddProduct", new { confirmation = true });
+                    }
+                    else
+                    {
+                        var categories = db.Categories.ToList();
+                        model.Categories = categories;
+                        return View(model);
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Nie wskazano pliku");
+                    var kategorie = db.Categories.ToList();
+                    model.Categories = kategorie;
+                    return View(model);
+                }
+            }
+
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult DeleteProduct(int product_id)
+        {
+            var product = db.Products.Find(product_id);
+            db.Products.Remove(product);
+            db.SaveChanges();
+
+            return RedirectToAction("AddProduct", new { confirmation = true });
+        }
+
+        #region Pomocnicy
         // Służy do ochrony XSRF podczas dodawania logowań zewnętrznych
         private const string XsrfKey = "XsrfId";
 

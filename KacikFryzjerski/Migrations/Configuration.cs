@@ -1,6 +1,7 @@
 namespace KacikFryzjerski.Migrations
 {
     using KacikFryzjerski.DAL;
+    using KacikFryzjerski.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -17,6 +18,7 @@ namespace KacikFryzjerski.Migrations
         protected override void Seed(KacikFryzjerski.DAL.DbContext context)
         {
             DbInitializer.SeedDbData(context);
+            DbInitializer.SeedUsers(new ApplicationDbContext());
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
