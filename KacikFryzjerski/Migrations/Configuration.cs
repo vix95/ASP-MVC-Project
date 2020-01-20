@@ -7,15 +7,15 @@ namespace KacikFryzjerski.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    public sealed class Configuration : DbMigrationsConfiguration<KacikFryzjerski.DAL.DbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<ProjectDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "DbContext";
+            ContextKey = "ProjectDbContext";
         }
 
-        protected override void Seed(KacikFryzjerski.DAL.DbContext context)
+        protected override void Seed(ProjectDbContext context)
         {
             DbInitializer.SeedDbData(context);
             DbInitializer.SeedUsers(new ApplicationDbContext());

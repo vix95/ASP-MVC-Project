@@ -12,7 +12,7 @@ namespace KacikFryzjerski.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly DbContext db = new DbContext();
+        private readonly ProjectDbContext db = new ProjectDbContext();
         public ActionResult Index()
         {
             ICacheProvider cache = new DefaultCacheProvider();

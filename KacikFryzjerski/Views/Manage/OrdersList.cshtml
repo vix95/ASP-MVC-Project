@@ -31,7 +31,7 @@
                                 <td style="text-align:right; vertical-align: top;">
                                     <div style="display: inline-flex;">
                                         <strong style="padding: 5px;">Stan: </strong>
-                                        <span>
+                                        <span style="padding: 5px;">
                                             @if (ViewBag.UserIsAdmin)
                                             {
                                                 using (Html.BeginForm("ChangeOrderStatus", "Manage"))
@@ -60,7 +60,7 @@
                                 <table>
                                     <tr>
                                         <td class="image"><img class="product" src="@Url.Content("~/Content/images/store/" + orderPositions.OrderPosition_ProductElement.Product_image_path)" /></td>
-                                        <td><a href="@Url.Action("Details", "Product", new { id = orderPositions.Id })">@orderPositions.OrderPosition_ProductElement.Product_name</a></td>
+                                        <td><a href="@Url.Action("Detail", "Store", new { product_id = orderPositions.Id })">@orderPositions.OrderPosition_ProductElement.Product_name</a></td>
                                         <td><strong>sztuk: </strong>@orderPositions.OrderPosition_quantity</td>
                                         <td><strong>suma: </strong>@(orderPositions.OrderPosition_quantity * @orderPositions.OrderPosition_price)  zł</td>
                                     </tr>

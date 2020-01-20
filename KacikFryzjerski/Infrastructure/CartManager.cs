@@ -9,9 +9,9 @@ namespace KacikFryzjerski.Infrastructure
 {
     public class CartManager
     {
-        private DbContext db;
+        private ProjectDbContext db;
         private ISessionManager session;
-        public CartManager(ISessionManager session, DbContext db)
+        public CartManager(ISessionManager session, ProjectDbContext db)
         {
             this.session = session;
             this.db = db;

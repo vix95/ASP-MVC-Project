@@ -156,7 +156,7 @@ namespace KacikFryzjerski.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
 
                 // Own Account Table
-                DbContext db = new DbContext();
+                ProjectDbContext db = new ProjectDbContext();
                 AccountModels newAccount = new AccountModels();
                 newAccount.Account_email = model.Email;
                 newAccount.AccountData = new AccountData();

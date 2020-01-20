@@ -11,9 +11,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace KacikFryzjerski.DAL
 {
-    public class DbInitializer : MigrateDatabaseToLatestVersion<DbContext, Configuration>
+    public class DbInitializer : MigrateDatabaseToLatestVersion<ProjectDbContext, Configuration>
     {
-        public static void SeedDbData(DbContext context)
+        public static void SeedDbData(ProjectDbContext context)
         {
             var categories = new List<CategoryModels>
             {

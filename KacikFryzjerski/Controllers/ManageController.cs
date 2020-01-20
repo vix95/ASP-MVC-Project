@@ -12,6 +12,7 @@ using System.Data.Entity;
 using KacikFryzjerski.ViewModel;
 using System.IO;
 using KacikFryzjerski.Infrastructure;
+using KacikFryzjerski.DAL;
 
 namespace KacikFryzjerski.Controllers
 {
@@ -20,14 +21,14 @@ namespace KacikFryzjerski.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private KacikFryzjerski.DAL.DbContext db;
+        private ProjectDbContext db;
 
         public ManageController()
         {
-            this.db = new KacikFryzjerski.DAL.DbContext();
+            this.db = new ProjectDbContext();
         }
 
-        public ManageController(KacikFryzjerski.DAL.DbContext context)
+        public ManageController(ProjectDbContext context)
         {
             this.db = context;
         }
