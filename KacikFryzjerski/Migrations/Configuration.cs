@@ -12,7 +12,7 @@ namespace KacikFryzjerski.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "KacikFryzjerski.DAL.DbContext";
+            ContextKey = "DbContext";
         }
 
         protected override void Seed(KacikFryzjerski.DAL.DbContext context)
